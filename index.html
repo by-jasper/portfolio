@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jasper Lee — HR Professional & Automation Specialist</title>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <title>Jasper Lee — HR Professional</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --page: #ffffff;
-      --surface: #f7fbf8;
-      --surface-strong: #eef7f0;
-      --ink: #11231b;
-      --muted: #5d7166;
-      --green: #074f2d;
-      --green-2: #0f7a43;
-      --green-3: #00b85f;
-      --matrix: #003b21;
-      --line: #d8e8dd;
-      --shadow: 0 22px 70px rgba(7, 79, 45, 0.12);
-      --mono: 'IBM Plex Mono', monospace;
+      --bg: #fffdf9;
+      --surface: #ffffff;
+      --surface-soft: #fbf4ef;
+      --ink: #231a18;
+      --muted: #73645f;
+      --maroon: #7f1d2d;
+      --maroon-dark: #54111d;
+      --maroon-soft: #f5dfe4;
+      --gold: #c98b45;
+      --line: #eaded8;
+      --shadow: 0 24px 70px rgba(84, 17, 29, 0.12);
+      --radius: 28px;
       --sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     }
 
@@ -28,674 +28,481 @@
 
     body {
       min-height: 100vh;
-      background: var(--page);
+      background:
+        radial-gradient(circle at top right, rgba(127, 29, 45, 0.08), transparent 28rem),
+        linear-gradient(180deg, #fffdf9 0%, #fff8f4 58%, #fffdf9 100%);
       color: var(--ink);
       font-family: var(--sans);
-      line-height: 1.7;
+      line-height: 1.6;
       overflow-x: hidden;
     }
 
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0 auto 0 0;
-      width: clamp(72px, 10vw, 138px);
-      z-index: 0;
-      background:
-        linear-gradient(180deg, rgba(1, 33, 18, 0.97), rgba(7, 79, 45, 0.93) 48%, rgba(0, 24, 13, 0.98)),
-        radial-gradient(circle at 50% 18%, rgba(0, 255, 119, 0.28), transparent 38%);
-      box-shadow: 16px 0 44px rgba(7, 79, 45, 0.18);
-      pointer-events: none;
-    }
-
-    body::after {
-      content: '010110 101001 001101 110010 011010 100101 010110 111000 001011 101101 010011 110100 001101 011001 101010 010101 111001 001100 101011 010010 110101 001011 100110 011101 010101 111000 001101 101001 010111 110010 001100 011010 101101 010010 111001 001011 100101 010110 110100 001101 011001 101010 010101 111001 001100 101011 010010';
-      position: fixed;
-      left: 14px;
-      top: -20vh;
-      width: clamp(42px, 7vw, 94px);
-      height: 140vh;
-      z-index: 1;
-      color: rgba(107, 255, 164, 0.7);
-      font-family: var(--mono);
-      font-size: clamp(0.72rem, 1.1vw, 1rem);
-      line-height: 1.55;
-      letter-spacing: 0.18em;
-      word-break: break-all;
-      text-shadow: 0 0 9px rgba(0, 255, 119, 0.75);
-      animation: matrixRun 18s linear infinite;
-      pointer-events: none;
-    }
-
-    a { color: inherit; }
-    button, input, textarea { font: inherit; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
 
     .page-shell {
-      position: relative;
-      z-index: 2;
-      margin-left: clamp(72px, 10vw, 138px);
-      min-height: 100vh;
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
     }
 
-    .topbar {
+    .site-header {
       position: sticky;
       top: 0;
       z-index: 20;
-      padding: 1rem clamp(1rem, 4vw, 4rem);
-      background: rgba(255, 255, 255, 0.88);
+      background: rgba(255, 253, 249, 0.86);
+      border-bottom: 1px solid rgba(234, 222, 216, 0.72);
       backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--line);
     }
 
-    .brand-row {
+    .nav-inner {
+      min-height: 74px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
-      max-width: 1180px;
-      margin: 0 auto 0.9rem;
+      gap: 1.5rem;
     }
 
     .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
       font-weight: 800;
-      color: var(--green);
-      letter-spacing: -0.03em;
-      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      letter-spacing: -0.04em;
     }
 
-    .brand-code {
-      font-family: var(--mono);
-      color: var(--muted);
-      font-size: 0.74rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .tabs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
-      max-width: 1180px;
-      margin: 0 auto;
-      list-style: none;
-    }
-
-    .tab-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.62rem 0.9rem;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: #fff;
-      color: var(--green);
-      font-family: var(--mono);
-      font-size: 0.76rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-decoration: none;
-      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
-    }
-
-    .tab-link:hover,
-    .tab-link.active {
-      background: var(--green);
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--maroon);
       color: #fff;
-      border-color: var(--green);
-      transform: translateY(-2px);
+      box-shadow: 0 10px 26px rgba(127, 29, 45, 0.22);
     }
 
-    section {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: clamp(4rem, 8vw, 7rem) clamp(1rem, 4vw, 4rem);
-      border-bottom: 1px solid var(--line);
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: clamp(1rem, 3vw, 2.2rem);
+      list-style: none;
+      color: var(--muted);
+      font-size: 0.94rem;
+      font-weight: 700;
     }
 
-    .section-kicker {
+    .nav-links a { transition: color 0.2s ease; }
+    .nav-links a:hover { color: var(--maroon); }
+
+    .hero {
+      min-height: calc(100vh - 74px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      gap: clamp(2rem, 6vw, 5rem);
+      align-items: center;
+      padding: clamp(4rem, 8vw, 7rem) 0;
+    }
+
+    .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 0.8rem;
-      color: var(--green-2);
-      font-family: var(--mono);
-      font-size: 0.78rem;
-      font-weight: 600;
+      gap: 0.55rem;
+      margin-bottom: 1.1rem;
+      color: var(--maroon);
+      font-size: 0.82rem;
+      font-weight: 800;
       letter-spacing: 0.12em;
       text-transform: uppercase;
     }
 
-    .section-kicker::before {
+    .eyebrow::before {
       content: '';
       width: 34px;
       height: 2px;
-      background: var(--green-3);
+      background: var(--gold);
     }
 
-    h1, h2, h3 { line-height: 1.08; letter-spacing: -0.05em; }
-    h1 { font-size: clamp(3.1rem, 8vw, 7.4rem); max-width: 980px; }
-    h2 { font-size: clamp(2rem, 4.2vw, 4rem); margin-bottom: 1rem; }
-    h3 { font-size: 1.25rem; margin-bottom: 0.55rem; }
+    h1, h2, h3 { line-height: 1.05; letter-spacing: -0.06em; }
 
-    .lead {
+    h1 {
+      max-width: 780px;
+      font-size: clamp(3.3rem, 9vw, 7.9rem);
+      font-weight: 800;
+    }
+
+    .name-highlight { color: var(--maroon); }
+
+    .typing-line {
+      min-height: 2.4rem;
+      margin-top: 1.15rem;
+      color: var(--maroon-dark);
+      font-size: clamp(1.12rem, 2vw, 1.45rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .typing-text::after {
+      content: '';
+      display: inline-block;
+      width: 0.09em;
+      height: 1.05em;
+      margin-left: 0.12em;
+      transform: translateY(0.16em);
+      background: var(--maroon);
+      animation: blink 0.8s steps(1) infinite;
+    }
+
+    .hero-copy {
+      max-width: 640px;
+      margin-top: 1.4rem;
       color: var(--muted);
-      max-width: 760px;
-      font-size: clamp(1rem, 1.7vw, 1.22rem);
-      margin-bottom: 2rem;
+      font-size: clamp(1rem, 1.5vw, 1.18rem);
     }
 
-    .hero {
-      min-height: calc(100vh - 116px);
-      display: grid;
-      align-content: center;
-      gap: 2rem;
-      background:
-        radial-gradient(circle at 80% 18%, rgba(0, 184, 95, 0.13), transparent 30%),
-        linear-gradient(120deg, #fff, #f6fbf7 62%, #ecf7ef);
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.85rem;
+      margin-top: 2rem;
     }
-
-    .hero-actions, .chat-actions, .note-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; }
 
     .button {
-      border: 1px solid var(--green);
-      border-radius: 12px;
-      padding: 0.8rem 1.05rem;
-      background: var(--green);
-      color: #fff;
-      cursor: pointer;
-      font-weight: 700;
-      text-decoration: none;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-    }
-
-    .button:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(7, 79, 45, 0.2); }
-    .button.secondary { background: #fff; color: var(--green); }
-    .button.ghost { background: transparent; color: var(--green); border-color: var(--line); }
-
-    .stat-grid, .card-grid, .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 2.2rem;
-    }
-
-    .card, .stat, .skill-card, .project-card, .chat-panel, .note-panel, .guide-card {
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      box-shadow: var(--shadow);
-    }
-
-    .stat, .skill-card, .project-card, .guide-card { padding: 1.4rem; }
-    .stat strong { display: block; color: var(--green); font-size: 1.7rem; line-height: 1; margin-bottom: 0.5rem; }
-    .stat span, .skill-card p, .project-card p, .guide-card p, .guide-card li { color: var(--muted); }
-
-    .about-layout, .chat-layout, .notes-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(310px, 0.95fr);
-      gap: 1.2rem;
-      align-items: start;
-    }
-
-    .about-copy { color: var(--muted); font-size: 1.02rem; }
-    .about-copy p + p { margin-top: 1rem; }
-    .about-copy strong { color: var(--green); }
-
-    .pill-list { display: flex; flex-wrap: wrap; gap: 0.7rem; }
-    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      min-height: 48px;
+      padding: 0.82rem 1.25rem;
       border: 1px solid var(--line);
       border-radius: 999px;
       background: var(--surface);
-      color: var(--green);
-      padding: 0.48rem 0.75rem;
-      font-family: var(--mono);
-      font-size: 0.76rem;
-      font-weight: 500;
+      color: var(--maroon-dark);
+      font-weight: 800;
+      box-shadow: 0 12px 28px rgba(84, 17, 29, 0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     }
 
-    .skills-projects { background: linear-gradient(180deg, #fff, #f7fbf8); }
-    .skill-card, .project-card { position: relative; overflow: hidden; }
-    .skill-card::before, .project-card::before {
-      content: '';
-      position: absolute;
-      inset: 0 0 auto;
-      height: 4px;
-      background: linear-gradient(90deg, var(--green), var(--green-3), transparent);
-    }
-
-    .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 1rem; }
-    .project-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1rem; }
-    .project-tags span { font-family: var(--mono); font-size: 0.68rem; color: var(--green); background: var(--surface-strong); border-radius: 8px; padding: 0.25rem 0.5rem; }
-
-    .chat-panel, .note-panel { overflow: hidden; }
-    .panel-header {
-      padding: 1rem 1.2rem;
-      background: linear-gradient(135deg, var(--green), #062818);
+    .button.primary {
+      border-color: var(--maroon);
+      background: var(--maroon);
       color: #fff;
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      align-items: center;
     }
 
-    .panel-header span { font-family: var(--mono); font-size: 0.74rem; opacity: 0.8; }
-    .chat-window { padding: 1rem; min-height: 360px; max-height: 520px; overflow-y: auto; background: #fbfefc; }
-    .message { display: flex; margin-bottom: 0.75rem; }
-    .message.bot { justify-content: flex-start; }
-    .message.user { justify-content: flex-end; }
-    .bubble {
-      max-width: 86%;
-      padding: 0.75rem 0.85rem;
-      border-radius: 16px;
-      border: 1px solid var(--line);
-      background: #fff;
-      color: var(--ink);
+    .button.status {
+      border-color: var(--maroon-soft);
+      background: var(--maroon-soft);
+      box-shadow: none;
     }
-    .message.user .bubble { background: var(--green); color: #fff; border-color: var(--green); }
-    .choice-area { padding: 1rem; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 0.6rem; background: #fff; }
-    .choice-button { border: 1px solid var(--line); border-radius: 999px; padding: 0.55rem 0.75rem; color: var(--green); background: var(--surface); cursor: pointer; }
-    .choice-button:hover { border-color: var(--green); background: var(--surface-strong); }
 
-    .guide-card ol { margin-left: 1.2rem; }
-    .guide-card li + li { margin-top: 0.55rem; }
-    code { font-family: var(--mono); color: var(--green); background: var(--surface-strong); border-radius: 6px; padding: 0.1rem 0.3rem; }
+    .button:hover { transform: translateY(-2px); box-shadow: 0 18px 36px rgba(84, 17, 29, 0.14); }
 
-    .note-form { padding: 1rem; display: grid; gap: 0.8rem; background: #fff; }
-    label { display: grid; gap: 0.35rem; color: var(--green); font-weight: 700; }
-    input, textarea {
-      width: 100%;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 0.8rem;
+    .hero-visual {
+      position: relative;
+      min-height: 560px;
+    }
+
+    .portrait-card,
+    .small-card,
+    .metric-card {
+      position: absolute;
+      overflow: hidden;
+      border: 1px solid rgba(234, 222, 216, 0.92);
       background: var(--surface);
-      color: var(--ink);
-    }
-    textarea { min-height: 150px; resize: vertical; }
-    .image-preview { display: none; max-width: 100%; border-radius: 16px; border: 1px solid var(--line); }
-    .entries { display: grid; gap: 1rem; }
-    .entry { padding: 1.1rem; border: 1px solid var(--line); border-radius: 20px; background: #fff; box-shadow: var(--shadow); }
-    .entry time { display: block; color: var(--muted); font-family: var(--mono); font-size: 0.72rem; margin-bottom: 0.4rem; }
-    .entry p { color: var(--muted); white-space: pre-wrap; }
-    .entry img { width: 100%; max-height: 340px; object-fit: cover; border-radius: 16px; margin-top: 0.85rem; border: 1px solid var(--line); }
-    .entry-actions { display: flex; justify-content: flex-end; margin-top: 0.8rem; }
-
-    footer { padding: 2rem clamp(1rem, 4vw, 4rem); color: var(--muted); font-family: var(--mono); font-size: 0.78rem; }
-    footer div { max-width: 1180px; margin: 0 auto; }
-
-    @keyframes matrixRun {
-      from { transform: translateY(-12%); }
-      to { transform: translateY(12%); }
+      box-shadow: var(--shadow);
     }
 
-    @media (max-width: 880px) {
-      body::before { width: 34px; }
-      body::after { left: 7px; width: 20px; font-size: 0.58rem; letter-spacing: 0.08em; }
-      .page-shell { margin-left: 34px; }
-      .brand-row { align-items: flex-start; flex-direction: column; }
-      .stat-grid, .skills-grid, .about-layout, .chat-layout, .notes-layout, .project-grid { grid-template-columns: 1fr; }
+    .portrait-card {
+      inset: 8% 10% auto auto;
+      width: min(72%, 390px);
+      aspect-ratio: 0.78;
+      border-radius: 44% 44% 34px 34px;
+      background:
+        radial-gradient(circle at 50% 28%, #f2cdbf 0 16%, transparent 17%),
+        radial-gradient(ellipse at 50% 80%, var(--maroon) 0 30%, transparent 31%),
+        radial-gradient(circle at 46% 25%, #3a2423 0 26%, transparent 27%),
+        linear-gradient(145deg, #f8e8dd, #fff7ef);
     }
 
-    @media (max-width: 560px) {
-      .tab-link { flex: 1 1 100%; justify-content: center; }
-      h1 { font-size: 2.7rem; }
-      section { padding-left: 0.85rem; padding-right: 0.85rem; }
+    .portrait-card::before {
+      content: 'JL';
+      position: absolute;
+      left: 50%;
+      bottom: 19%;
+      transform: translateX(-50%);
+      color: rgba(255, 255, 255, 0.86);
+      font-size: clamp(3.2rem, 7vw, 5.5rem);
+      font-weight: 800;
+      letter-spacing: -0.14em;
+      text-shadow: 0 10px 25px rgba(84, 17, 29, 0.28);
+    }
+
+    .small-card {
+      left: 0;
+      top: 2%;
+      width: min(45%, 220px);
+      aspect-ratio: 1;
+      border-radius: 38px;
+      padding: 1rem;
+      display: grid;
+      align-content: end;
+      background:
+        linear-gradient(135deg, rgba(127, 29, 45, 0.82), rgba(84, 17, 29, 0.94)),
+        radial-gradient(circle at 26% 24%, rgba(255, 255, 255, 0.42), transparent 30%);
+      color: #fff;
+    }
+
+    .small-card strong { font-size: 2.35rem; line-height: 1; letter-spacing: -0.08em; }
+    .small-card span { margin-top: 0.45rem; font-size: 0.9rem; opacity: 0.86; }
+
+    .metric-card {
+      left: 5%;
+      bottom: 4%;
+      width: min(55%, 290px);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+    }
+
+    .metric-card p { color: var(--muted); font-size: 0.92rem; }
+    .metric-card strong { display: block; margin-bottom: 0.35rem; color: var(--maroon); font-size: 1.45rem; letter-spacing: -0.04em; }
+
+    .shape-dot {
+      position: absolute;
+      right: 0;
+      bottom: 16%;
+      width: 124px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: 0.24;
+    }
+
+    section:not(.hero) { padding: clamp(4rem, 7vw, 6rem) 0; }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+      gap: 1.5rem;
+      align-items: end;
+      margin-bottom: 2rem;
+    }
+
+    h2 { font-size: clamp(2.2rem, 5vw, 4.3rem); }
+    .section-heading p, .about-copy p { color: var(--muted); font-size: 1.02rem; }
+
+    .about-grid,
+    .work-grid,
+    .article-grid,
+    .testimonial-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .about-grid { grid-template-columns: minmax(0, 1.1fr) minmax(290px, 0.9fr); }
+    .about-copy, .panel, .work-card, .article-card, .testimonial-card, .faq-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 18px 48px rgba(84, 17, 29, 0.08);
+    }
+
+    .about-copy, .panel { padding: clamp(1.3rem, 3vw, 2rem); }
+    .about-copy p + p { margin-top: 1rem; }
+
+    .pill-list { display: flex; flex-wrap: wrap; gap: 0.65rem; }
+    .pill { padding: 0.55rem 0.8rem; border-radius: 999px; background: var(--surface-soft); color: var(--maroon-dark); font-weight: 800; font-size: 0.86rem; }
+
+    .work-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .work-card, .article-card, .testimonial-card, .faq-card { padding: 1.25rem; }
+    .work-card time, .article-card time { color: var(--maroon); font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; }
+    .work-card h3, .article-card h3, .testimonial-card h3 { margin: 0.65rem 0; font-size: 1.2rem; letter-spacing: -0.04em; }
+    .work-card p, .article-card p, .testimonial-card p, .faq-card p { color: var(--muted); }
+
+    .article-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .article-card { min-height: 230px; display: grid; align-content: space-between; }
+    .read-link { margin-top: 1.2rem; color: var(--maroon); font-weight: 800; }
+
+    .testimonial-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .testimonial-card { background: var(--maroon-dark); color: #fff; }
+    .testimonial-card p { color: rgba(255, 255, 255, 0.78); }
+    .testimonial-card h3 { color: #fff; }
+
+    .faq-card { display: grid; gap: 1rem; }
+    details { padding: 1rem; border-radius: 18px; background: var(--surface-soft); }
+    summary { cursor: pointer; color: var(--maroon-dark); font-weight: 800; }
+    details p { margin-top: 0.65rem; color: var(--muted); }
+
+    footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @keyframes blink { 50% { opacity: 0; } }
+
+    @media (max-width: 900px) {
+      .hero, .section-heading, .about-grid { grid-template-columns: 1fr; }
+      .hero { padding-top: 3.2rem; }
+      .hero-visual { min-height: 480px; }
+      .work-grid, .article-grid, .testimonial-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 680px) {
+      .page-shell { width: min(100% - 28px, 1160px); }
+      .nav-inner { align-items: flex-start; flex-direction: column; padding: 0.9rem 0; }
+      .nav-links { width: 100%; flex-wrap: wrap; gap: 0.8rem 1rem; font-size: 0.86rem; }
+      h1 { font-size: clamp(3rem, 17vw, 5rem); }
+      .hero-visual { min-height: 390px; }
+      .portrait-card { width: 70%; right: 0; }
+      .small-card { width: 42%; }
+      .metric-card { width: 68%; left: 0; }
     }
   </style>
 </head>
 <body>
-  <div class="page-shell">
-    <header class="topbar">
-      <div class="brand-row">
-        <div class="brand">Jasper Lee</div>
-        <div class="brand-code">HR · Automation · Matrix Console</div>
-      </div>
-      <ul class="tabs" aria-label="Primary navigation">
-        <li><a class="tab-link active" href="#welcome">Welcome</a></li>
-        <li><a class="tab-link" href="#about">About Me</a></li>
-        <li><a class="tab-link" href="#skills-projects">Skills &amp; Projects</a></li>
-        <li><a class="tab-link" href="#hr-chatbot">HR Chatbot</a></li>
-        <li><a class="tab-link" href="#notes">Notes</a></li>
+  <header class="site-header">
+    <nav class="page-shell nav-inner" aria-label="Primary navigation">
+      <a class="brand" href="#home"><span class="brand-mark">JL</span><span>Jasper Lee</span></a>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#insights">Insights</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
-    </header>
+    </nav>
+  </header>
 
-    <main>
-      <section id="welcome" class="hero">
-        <div>
-          <div class="section-kicker">Welcome</div>
-          <h1>Human-centred HR with automation-ready systems.</h1>
-          <p class="lead">A white-space portfolio experience framed by a dark green Matrix-style number stream. Explore my HR operations background, automation projects, a no-API branching HR chatbot, and an in-browser notes/blog tool with image posts.</p>
-          <div class="hero-actions">
-            <a class="button" href="#hr-chatbot">Try HR Chatbot</a>
-            <a class="button secondary" href="#notes">Write a Note</a>
+  <main class="page-shell">
+    <section id="home" class="hero" aria-label="Landing page introduction">
+      <div>
+        <div class="eyebrow">People operations portfolio</div>
+        <h1>Hey, I'm <span class="name-highlight">Jasper Lee</span></h1>
+        <p class="typing-line" aria-live="polite"><span id="typingText" class="typing-text"></span></p>
+        <p class="hero-copy">I build practical, employee-friendly HR operations across onboarding, payroll coordination, compliance documentation, and process improvement.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#experience">View resume</a>
+          <a class="button status" href="#contact">Available for HR projects</a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="small-card"><strong>HR</strong><span>Operations, payroll and employee support.</span></div>
+        <div class="portrait-card"></div>
+        <div class="metric-card"><strong>Based in Singapore</strong><p>Focused on dependable HR service delivery, clear processes, and compliant documentation.</p></div>
+        <div class="shape-dot"></div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-heading">
+        <h2>About me</h2>
+        <p>Like the reference site, this section keeps the story direct and spacious: a short profile, a simple skills panel, and generous white space.</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-copy">
+          <p>I am an HR professional who supports the full employee lifecycle, from hiring coordination and onboarding through payroll support, documentation, employee queries, and offboarding.</p>
+          <p>My approach is structured and service-led. I enjoy turning repeated manual steps into simple workflows that make HR easier to operate and easier for employees to understand.</p>
+        </div>
+        <div class="panel">
+          <div class="pill-list" aria-label="Core HR skills">
+            <span class="pill">Onboarding</span>
+            <span class="pill">Payroll support</span>
+            <span class="pill">Employee records</span>
+            <span class="pill">Compliance</span>
+            <span class="pill">HR systems</span>
+            <span class="pill">Process improvement</span>
+            <span class="pill">Singapore HR</span>
           </div>
         </div>
-        <div class="stat-grid" aria-label="Portfolio highlights">
-          <div class="stat"><strong>E2E</strong><span>Employment life cycle management from onboarding through offboarding.</span></div>
-          <div class="stat"><strong>CPF</strong><span>Payroll, Singapore compliance, MOM, IRAS, WICA, and HR documentation.</span></div>
-          <div class="stat"><strong>JS</strong><span>Browser-native prototypes using clean interfaces and pure JavaScript logic.</span></div>
-        </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="about">
-        <div class="section-kicker">About Me</div>
-        <h2>HR operations, payroll rigour, and process automation.</h2>
-        <div class="about-layout">
-          <div class="about-copy">
-            <p>I am an <strong>HR professional</strong> with experience across talent acquisition, onboarding, payroll, compliance, employee queries, HR systems, and offboarding. My work focuses on accuracy, auditability, and employee-friendly service delivery.</p>
-            <p>I pair HR domain knowledge with a systems-thinking approach: finding repeated manual work, clarifying the rules behind it, and turning those rules into reliable workflows using tools such as Python, VBA, Power Automate, SharePoint, and Microsoft Copilot Studio.</p>
-            <p>This portfolio includes lightweight browser tools so ideas can be tested without servers, API keys, or paid infrastructure.</p>
-          </div>
-          <div class="pill-list" aria-label="Core expertise">
-            <span class="pill">Employment Life Cycle</span>
-            <span class="pill">Payroll &amp; CPF</span>
-            <span class="pill">MOM / IRAS / WICA</span>
-            <span class="pill">HR Systems</span>
-            <span class="pill">Power Automate</span>
-            <span class="pill">SharePoint Lists</span>
-            <span class="pill">Copilot Studio</span>
-            <span class="pill">Process Improvement</span>
-          </div>
-        </div>
-      </section>
+    <section id="experience">
+      <div class="section-heading">
+        <h2>Work experience</h2>
+        <p>A clean resume-style timeline inspired by the reference layout, adapted for an HR professional portfolio.</p>
+      </div>
+      <div class="work-grid">
+        <article class="work-card"><time>2024 — Present</time><h3>HR Operations</h3><p>Employee lifecycle administration, HR documentation, query handling, onboarding coordination, and offboarding support.</p></article>
+        <article class="work-card"><time>Payroll</time><h3>Payroll & statutory support</h3><p>Monthly payroll coordination with attention to CPF, MOM, IRAS, WICA, records accuracy, and audit-ready documentation.</p></article>
+        <article class="work-card"><time>Systems</time><h3>HR process improvement</h3><p>Workflow mapping, tracker design, template standardisation, and light automation ideas for recurring HR tasks.</p></article>
+      </div>
+    </section>
 
-      <section id="skills-projects" class="skills-projects">
-        <div class="section-kicker">Skills & Projects</div>
-        <h2>Practical HR automation, from policy support to document generation.</h2>
-        <div class="skills-grid">
-          <div class="skill-card"><h3>HR Operations</h3><p>End-to-end employee administration, HR case handling, payroll coordination, statutory compliance, and service delivery.</p></div>
-          <div class="skill-card"><h3>Automation</h3><p>Workflow design using Power Automate, VBA, Python, scheduled scripts, form triggers, and rule-based process mapping.</p></div>
-          <div class="skill-card"><h3>Knowledge Tools</h3><p>SharePoint information structures, Copilot Studio agents, prompt design, knowledge-base curation, and self-service HR content.</p></div>
-        </div>
-        <div class="project-grid">
-          <article class="project-card"><h3>Copilot Studio HR Policy Advisor</h3><p>Designed an HR policy support agent for Teams using curated documents, prompt guardrails, and controlled pilot access.</p><div class="project-tags"><span>Copilot Studio</span><span>Teams</span><span>Knowledge Base</span></div></article>
-          <article class="project-card"><h3>Automated HR Letter Generator</h3><p>Converted form submissions into templated Word/PDF letters with script-driven generation and Outlook delivery.</p><div class="project-tags"><span>Python</span><span>VBA</span><span>Power Automate</span></div></article>
-          <article class="project-card"><h3>SharePoint HR Tracker</h3><p>Structured HR issue lists with grouped views, ownership fields, status tracking, and meeting carry-forward workflows.</p><div class="project-tags"><span>SharePoint</span><span>M365</span><span>Reporting</span></div></article>
-          <article class="project-card"><h3>Kaizen Process Improvement</h3><p>Mapped repetitive HR tasks, identified waste, and translated improvements into leaner digital workflows.</p><div class="project-tags"><span>Kaizen</span><span>Lean</span><span>Workflow</span></div></article>
-        </div>
-      </section>
+    <section id="insights">
+      <div class="section-heading">
+        <h2>Latest insights</h2>
+        <p>Short article cards echo the referenced portfolio structure while keeping the content relevant to HR operations.</p>
+      </div>
+      <div class="article-grid">
+        <article class="article-card"><div><time>HR Systems</time><h3>Making onboarding easier to follow</h3><p>How checklists, owners, and document templates reduce confusion for new hires and HR teams.</p></div><a class="read-link" href="#contact">Read note →</a></article>
+        <article class="article-card"><div><time>Payroll</time><h3>Designing audit-ready payroll handoffs</h3><p>A practical view of clean inputs, exception logs, and review points before monthly processing.</p></div><a class="read-link" href="#contact">Read note →</a></article>
+        <article class="article-card"><div><time>Process</time><h3>Turning repeated HR questions into self-service</h3><p>Simple knowledge-base structures that help employees find accurate answers faster.</p></div><a class="read-link" href="#contact">Read note →</a></article>
+      </div>
+    </section>
 
-      <section id="hr-chatbot">
-        <div class="section-kicker">HR Chatbot</div>
-        <h2>Branching conversation tree, powered by pure JavaScript.</h2>
-        <p class="lead">This chatbot follows a Welcome → Topic → Sub-topic flow. It does not call any API and all responses live in the page JavaScript, making it safe for static hosting.</p>
-        <div class="chat-layout">
-          <div class="chat-panel" aria-live="polite">
-            <div class="panel-header"><strong>HR Help Desk Bot</strong><span>No API calls</span></div>
-            <div id="chatWindow" class="chat-window"></div>
-            <div id="choiceArea" class="choice-area"></div>
-          </div>
-          <aside class="guide-card">
-            <h3>Google Sheets update guide</h3>
-            <p>If you later connect this chatbot to Google Sheets, keep the same tree columns so HR can update content without touching code.</p>
-            <ol>
-              <li>Create a sheet with columns: <code>nodeId</code>, <code>parentId</code>, <code>buttonLabel</code>, <code>message</code>, and <code>sortOrder</code>.</li>
-              <li>Each topic row uses <code>welcome</code> as <code>parentId</code>. Each sub-topic row uses its topic <code>nodeId</code> as <code>parentId</code>.</li>
-              <li>Publish the sheet as CSV or expose it through Google Apps Script as JSON.</li>
-              <li>Replace the local <code>chatTree</code> object with a small fetch loader that builds the same parent/child structure.</li>
-              <li>Review privacy before publishing: do not store confidential employee cases or personal data in a public sheet.</li>
-            </ol>
-          </aside>
-        </div>
-      </section>
+    <section>
+      <div class="section-heading">
+        <h2>Testimonials</h2>
+        <p>Warm maroon blocks provide the secondary colour emphasis while keeping the overall page bright and minimal.</p>
+      </div>
+      <div class="testimonial-grid">
+        <article class="testimonial-card"><p>“Jasper brings structure and care to HR operations, making complex employee processes feel clear and manageable.”</p><h3>People Operations Lead</h3></article>
+        <article class="testimonial-card"><p>“His attention to detail helps payroll, documentation, and compliance workflows move with fewer surprises.”</p><h3>Finance Partner</h3></article>
+      </div>
+    </section>
 
-      <section id="notes">
-        <div class="section-kicker">Notes / Blog</div>
-        <h2>Write, attach a picture, and post in the browser.</h2>
-        <p class="lead">Entries are saved to this browser's local storage. Add a title, note, and optional image; the picture is stored as a data URL with the note.</p>
-        <div class="notes-layout">
-          <div class="note-panel">
-            <div class="panel-header"><strong>New Entry</strong><span>Local only</span></div>
-            <form id="noteForm" class="note-form">
-              <label>Title<input id="noteTitle" type="text" maxlength="90" placeholder="e.g. Payroll automation idea" required /></label>
-              <label>Entry<textarea id="noteBody" placeholder="Write your update, reflection, or project note..." required></textarea></label>
-              <label>Picture<input id="noteImage" type="file" accept="image/*" /></label>
-              <img id="imagePreview" class="image-preview" alt="Selected note preview" />
-              <div class="note-actions">
-                <button class="button" type="submit">Post Entry</button>
-                <button class="button ghost" id="clearEntries" type="button">Clear All</button>
-              </div>
-            </form>
-          </div>
-          <div>
-            <h3>Published Entries</h3>
-            <div id="entries" class="entries" aria-live="polite"></div>
-          </div>
-        </div>
-      </section>
-    </main>
+    <section id="contact">
+      <div class="section-heading">
+        <h2>Frequently asked questions</h2>
+        <p>Use this area for common hiring or collaboration questions, similar to the FAQ section on the reference site.</p>
+      </div>
+      <div class="faq-card">
+        <details open><summary>What HR work do you focus on?</summary><p>Employee lifecycle administration, onboarding, payroll coordination, HR records, compliance documentation, and process improvement.</p></details>
+        <details><summary>Where are you based?</summary><p>I am based in Singapore and focus on HR operations suited for Singapore teams and employment processes.</p></details>
+        <details><summary>How can someone contact you?</summary><p>Add your email, LinkedIn, or preferred contact form here to turn this section into a live contact area.</p></details>
+      </div>
+    </section>
+  </main>
 
-    <footer><div>// Jasper Lee · HR · Payroll · Automation · Static portfolio</div></footer>
-  </div>
+  <footer class="page-shell">© 2026 Jasper Lee · HR professional · Based in Singapore</footer>
 
   <script>
-    const tabLinks = document.querySelectorAll('.tab-link');
-    const sectionIds = [...tabLinks].map(link => link.getAttribute('href'));
-    const sections = sectionIds.map(id => document.querySelector(id)).filter(Boolean);
+    const typingText = document.querySelector('#typingText');
+    const phrases = ['HR professional', 'Based in Singapore'];
+    let phraseIndex = 0;
+    let characterIndex = 0;
+    let isDeleting = false;
 
-    const navObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          tabLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`));
-        }
-      });
-    }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
-    sections.forEach(section => navObserver.observe(section));
+    function typeLoop() {
+      const currentPhrase = phrases[phraseIndex];
+      typingText.textContent = currentPhrase.slice(0, characterIndex);
 
-    const chatTree = {
-      welcome: {
-        message: 'Welcome to the HR Help Desk Bot. Choose a topic to begin.',
-        choices: [
-          { label: 'Leave & Time Off', next: 'leave' },
-          { label: 'Payroll & CPF', next: 'payroll' },
-          { label: 'Onboarding', next: 'onboarding' },
-          { label: 'HR Systems', next: 'systems' }
-        ]
-      },
-      leave: {
-        message: 'Leave & Time Off selected. Which sub-topic do you need?',
-        choices: [
-          { label: 'Annual leave balance', next: 'leave_balance' },
-          { label: 'Medical leave documents', next: 'leave_medical' },
-          { label: 'Back to topics', next: 'welcome' }
-        ]
-      },
-      leave_balance: {
-        message: 'Check your leave balance in the HR portal first. If the balance looks incorrect, prepare the affected dates and approval records before contacting HR.',
-        choices: [{ label: 'Back to Leave', next: 'leave' }, { label: 'Start Over', next: 'welcome' }]
-      },
-      leave_medical: {
-        message: 'For medical leave, submit the certificate through the HR portal as soon as possible and keep the original copy if your policy requires verification.',
-        choices: [{ label: 'Back to Leave', next: 'leave' }, { label: 'Start Over', next: 'welcome' }]
-      },
-      payroll: {
-        message: 'Payroll & CPF selected. Choose a payroll sub-topic.',
-        choices: [
-          { label: 'Payslip question', next: 'payroll_payslip' },
-          { label: 'CPF contribution', next: 'payroll_cpf' },
-          { label: 'Back to topics', next: 'welcome' }
-        ]
-      },
-      payroll_payslip: {
-        message: 'Review your payslip earnings, deductions, and pay period. For discrepancies, send HR the payslip month, item in question, and supporting documents.',
-        choices: [{ label: 'Back to Payroll', next: 'payroll' }, { label: 'Start Over', next: 'welcome' }]
-      },
-      payroll_cpf: {
-        message: 'CPF amounts depend on wages, age band, citizenship status, and contribution ceilings. HR can verify the calculation when you provide the relevant pay month.',
-        choices: [{ label: 'Back to Payroll', next: 'payroll' }, { label: 'Start Over', next: 'welcome' }]
-      },
-      onboarding: {
-        message: 'Onboarding selected. Which part of joining do you want to check?',
-        choices: [
-          { label: 'First-day checklist', next: 'onboarding_first_day' },
-          { label: 'Documents to submit', next: 'onboarding_docs' },
-          { label: 'Back to topics', next: 'welcome' }
-        ]
-      },
-      onboarding_first_day: {
-        message: 'First-day preparation normally includes account setup, equipment collection, policy acknowledgement, team introduction, and payroll bank details verification.',
-        choices: [{ label: 'Back to Onboarding', next: 'onboarding' }, { label: 'Start Over', next: 'welcome' }]
-      },
-      onboarding_docs: {
-        message: 'Common onboarding documents include identification, bank details, tax forms, emergency contact, certificates, and signed employment documents.',
-        choices: [{ label: 'Back to Onboarding', next: 'onboarding' }, { label: 'Start Over', next: 'welcome' }]
-      },
-      systems: {
-        message: 'HR Systems selected. Pick a support route.',
-        choices: [
-          { label: 'Password or access', next: 'systems_access' },
-          { label: 'Update personal details', next: 'systems_profile' },
-          { label: 'Back to topics', next: 'welcome' }
-        ]
-      },
-      systems_access: {
-        message: 'For access issues, try password reset first. If blocked, provide your employee ID, system name, screenshot, and error time to IT or HR Systems.',
-        choices: [{ label: 'Back to Systems', next: 'systems' }, { label: 'Start Over', next: 'welcome' }]
-      },
-      systems_profile: {
-        message: 'Update personal details in the HR portal where self-service is enabled. For locked fields, submit proof of change to HR for verification.',
-        choices: [{ label: 'Back to Systems', next: 'systems' }, { label: 'Start Over', next: 'welcome' }]
-      }
-    };
-
-    const chatWindow = document.querySelector('#chatWindow');
-    const choiceArea = document.querySelector('#choiceArea');
-
-    function addMessage(text, sender = 'bot') {
-      const row = document.createElement('div');
-      row.className = `message ${sender}`;
-      const bubble = document.createElement('div');
-      bubble.className = 'bubble';
-      bubble.textContent = text;
-      row.appendChild(bubble);
-      chatWindow.appendChild(row);
-      chatWindow.scrollTop = chatWindow.scrollHeight;
-    }
-
-    function renderNode(nodeId, userLabel) {
-      const node = chatTree[nodeId];
-      if (!node) return;
-      if (userLabel) addMessage(userLabel, 'user');
-      addMessage(node.message, 'bot');
-      choiceArea.innerHTML = '';
-      node.choices.forEach((choice) => {
-        const button = document.createElement('button');
-        button.className = 'choice-button';
-        button.type = 'button';
-        button.textContent = choice.label;
-        button.addEventListener('click', () => renderNode(choice.next, choice.label));
-        choiceArea.appendChild(button);
-      });
-    }
-
-    renderNode('welcome');
-
-    const noteForm = document.querySelector('#noteForm');
-    const noteTitle = document.querySelector('#noteTitle');
-    const noteBody = document.querySelector('#noteBody');
-    const noteImage = document.querySelector('#noteImage');
-    const imagePreview = document.querySelector('#imagePreview');
-    const entriesContainer = document.querySelector('#entries');
-    const clearEntries = document.querySelector('#clearEntries');
-    const storageKey = 'jasper-portfolio-notes';
-    let selectedImage = '';
-
-    function loadEntries() {
-      try {
-        return JSON.parse(localStorage.getItem(storageKey)) || [];
-      } catch (error) {
-        return [];
-      }
-    }
-
-    function saveEntries(entries) {
-      localStorage.setItem(storageKey, JSON.stringify(entries));
-    }
-
-    function renderEntries() {
-      const entries = loadEntries();
-      entriesContainer.innerHTML = '';
-      if (!entries.length) {
-        const empty = document.createElement('p');
-        empty.className = 'lead';
-        empty.textContent = 'No notes yet. Write your first entry to see it here.';
-        entriesContainer.appendChild(empty);
+      if (!isDeleting && characterIndex < currentPhrase.length) {
+        characterIndex += 1;
+        setTimeout(typeLoop, 95);
         return;
       }
 
-      entries.forEach((entry) => {
-        const article = document.createElement('article');
-        const time = document.createElement('time');
-        const title = document.createElement('h3');
-        const body = document.createElement('p');
-        const actions = document.createElement('div');
-        const deleteButton = document.createElement('button');
+      if (!isDeleting && characterIndex === currentPhrase.length) {
+        isDeleting = true;
+        setTimeout(typeLoop, 1200);
+        return;
+      }
 
-        article.className = 'entry';
-        time.dateTime = entry.createdAt;
-        time.textContent = new Date(entry.createdAt).toLocaleString();
-        title.textContent = entry.title;
-        body.textContent = entry.body;
-        actions.className = 'entry-actions';
-        deleteButton.className = 'button ghost';
-        deleteButton.type = 'button';
-        deleteButton.textContent = 'Delete';
-        deleteButton.addEventListener('click', () => {
-          saveEntries(loadEntries().filter(item => item.id !== entry.id));
-          renderEntries();
-        });
+      if (isDeleting && characterIndex > 0) {
+        characterIndex -= 1;
+        setTimeout(typeLoop, 55);
+        return;
+      }
 
-        article.append(time, title, body);
-        if (entry.image) {
-          const img = document.createElement('img');
-          img.src = entry.image;
-          img.alt = `Image for ${entry.title}`;
-          article.appendChild(img);
-        }
-        actions.appendChild(deleteButton);
-        article.appendChild(actions);
-        entriesContainer.appendChild(article);
-      });
+      isDeleting = false;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      setTimeout(typeLoop, 240);
     }
 
-    noteImage.addEventListener('change', () => {
-      const file = noteImage.files[0];
-      selectedImage = '';
-      imagePreview.style.display = 'none';
-      if (!file) return;
-      const reader = new FileReader();
-      reader.addEventListener('load', () => {
-        selectedImage = reader.result;
-        imagePreview.src = selectedImage;
-        imagePreview.style.display = 'block';
-      });
-      reader.readAsDataURL(file);
-    });
-
-    noteForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const entries = loadEntries();
-      entries.unshift({
-        id: globalThis.crypto?.randomUUID?.() || String(Date.now()),
-        title: noteTitle.value.trim(),
-        body: noteBody.value.trim(),
-        image: selectedImage,
-        createdAt: new Date().toISOString()
-      });
-      saveEntries(entries);
-      noteForm.reset();
-      selectedImage = '';
-      imagePreview.style.display = 'none';
-      renderEntries();
-    });
-
-    clearEntries.addEventListener('click', () => {
-      if (confirm('Clear all local notes from this browser?')) {
-        saveEntries([]);
-        renderEntries();
-      }
-    });
-
-    renderEntries();
+    typeLoop();
   </script>
 </body>
 </html>
