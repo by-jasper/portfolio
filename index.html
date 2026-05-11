@@ -3,25 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Jasper Lee is an HR professional based in Singapore, focused on employee lifecycle operations, payroll coordination, HR systems, and process improvement." />
   <title>Jasper Lee — HR Professional</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #fffdf9;
+      --paper: #fffdf9;
+      --paper-warm: #fbf3ee;
       --surface: #ffffff;
-      --surface-soft: #fbf4ef;
-      --ink: #231a18;
-      --muted: #73645f;
-      --maroon: #7f1d2d;
-      --maroon-dark: #54111d;
-      --maroon-soft: #f5dfe4;
-      --gold: #c98b45;
-      --line: #eaded8;
-      --shadow: 0 24px 70px rgba(84, 17, 29, 0.12);
-      --radius: 28px;
-      --sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --surface-tint: #fff7f4;
+      --ink: #221917;
+      --muted: #766761;
+      --maroon: #7a1728;
+      --maroon-dark: #4f0f1b;
+      --maroon-soft: #f3dbe1;
+      --clay: #b9725d;
+      --gold: #d49a4f;
+      --line: #eadbd4;
+      --shadow: 0 28px 80px rgba(79, 15, 27, 0.12);
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --radius-pill: 999px;
+      --container: min(1180px, calc(100% - 40px));
+      --font: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     }
 
     html { scroll-behavior: smooth; }
@@ -29,33 +37,34 @@
     body {
       min-height: 100vh;
       background:
-        radial-gradient(circle at top right, rgba(127, 29, 45, 0.08), transparent 28rem),
-        linear-gradient(180deg, #fffdf9 0%, #fff8f4 58%, #fffdf9 100%);
+        radial-gradient(circle at 78% 8%, rgba(122, 23, 40, 0.10), transparent 26rem),
+        radial-gradient(circle at 10% 46%, rgba(212, 154, 79, 0.10), transparent 24rem),
+        linear-gradient(180deg, var(--paper) 0%, #fff9f5 52%, var(--paper) 100%);
       color: var(--ink);
-      font-family: var(--sans);
-      line-height: 1.6;
+      font-family: var(--font);
+      line-height: 1.65;
       overflow-x: hidden;
     }
 
     a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
+    button { font: inherit; }
 
-    .page-shell {
-      width: min(1160px, calc(100% - 40px));
-      margin: 0 auto;
+    .container {
+      width: var(--container);
+      margin-inline: auto;
     }
 
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 20;
-      background: rgba(255, 253, 249, 0.86);
-      border-bottom: 1px solid rgba(234, 222, 216, 0.72);
+      z-index: 50;
+      background: rgba(255, 253, 249, 0.88);
+      border-bottom: 1px solid rgba(234, 219, 212, 0.72);
       backdrop-filter: blur(18px);
     }
 
-    .nav-inner {
-      min-height: 74px;
+    .nav {
+      min-height: 78px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -65,96 +74,128 @@
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 0.7rem;
-      font-weight: 800;
-      letter-spacing: -0.04em;
+      gap: 0.8rem;
+      font-size: 1.02rem;
+      font-weight: 900;
+      letter-spacing: -0.05em;
     }
 
-    .brand-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
+    .brand-badge {
+      width: 44px;
+      height: 44px;
       display: grid;
       place-items: center;
+      border-radius: 50%;
       background: var(--maroon);
       color: #fff;
-      box-shadow: 0 10px 26px rgba(127, 29, 45, 0.22);
+      box-shadow: 0 14px 28px rgba(122, 23, 40, 0.2);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: clamp(1rem, 3vw, 2.2rem);
+      gap: clamp(0.9rem, 2.4vw, 2.1rem);
       list-style: none;
       color: var(--muted);
       font-size: 0.94rem;
-      font-weight: 700;
+      font-weight: 800;
     }
 
-    .nav-links a { transition: color 0.2s ease; }
-    .nav-links a:hover { color: var(--maroon); }
+    .nav-links a {
+      position: relative;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -0.4rem;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--maroon);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible { color: var(--maroon); }
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after { transform: scaleX(1); }
 
     .hero {
-      min-height: calc(100vh - 74px);
+      min-height: calc(100vh - 78px);
       display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
-      gap: clamp(2rem, 6vw, 5rem);
+      grid-template-columns: minmax(0, 1.02fr) minmax(340px, 0.98fr);
+      gap: clamp(2.25rem, 6vw, 5.5rem);
       align-items: center;
-      padding: clamp(4rem, 8vw, 7rem) 0;
+      padding: clamp(4rem, 8vw, 7.5rem) 0 clamp(5rem, 8vw, 7rem);
     }
 
-    .eyebrow {
+    .kicker {
       display: inline-flex;
       align-items: center;
-      gap: 0.55rem;
-      margin-bottom: 1.1rem;
+      gap: 0.65rem;
+      margin-bottom: 1.15rem;
       color: var(--maroon);
-      font-size: 0.82rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
     }
 
-    .eyebrow::before {
+    .kicker::before {
       content: '';
-      width: 34px;
+      width: 38px;
       height: 2px;
-      background: var(--gold);
+      background: linear-gradient(90deg, var(--maroon), var(--gold));
     }
 
-    h1, h2, h3 { line-height: 1.05; letter-spacing: -0.06em; }
+    h1, h2, h3 {
+      line-height: 1.02;
+      letter-spacing: -0.065em;
+    }
 
     h1 {
-      max-width: 780px;
-      font-size: clamp(3.3rem, 9vw, 7.9rem);
-      font-weight: 800;
+      max-width: 760px;
+      font-size: clamp(3.4rem, 8.5vw, 7.8rem);
+      font-weight: 900;
     }
 
-    .name-highlight { color: var(--maroon); }
+    h2 {
+      font-size: clamp(2.2rem, 5.4vw, 4.7rem);
+      font-weight: 900;
+    }
+
+    h3 { font-size: 1.25rem; font-weight: 900; }
+
+    .accent { color: var(--maroon); }
 
     .typing-line {
-      min-height: 2.4rem;
+      min-height: 2.35rem;
       margin-top: 1.15rem;
       color: var(--maroon-dark);
-      font-size: clamp(1.12rem, 2vw, 1.45rem);
-      font-weight: 700;
-      letter-spacing: -0.02em;
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
     }
 
     .typing-text::after {
       content: '';
       display: inline-block;
-      width: 0.09em;
+      width: 0.1em;
       height: 1.05em;
-      margin-left: 0.12em;
+      margin-left: 0.14em;
       transform: translateY(0.16em);
       background: var(--maroon);
       animation: blink 0.8s steps(1) infinite;
     }
 
     .hero-copy {
-      max-width: 640px;
-      margin-top: 1.4rem;
+      max-width: 650px;
+      margin-top: 1.5rem;
       color: var(--muted);
       font-size: clamp(1rem, 1.5vw, 1.18rem);
     }
@@ -162,7 +203,6 @@
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
       gap: 0.85rem;
       margin-top: 2rem;
     }
@@ -171,15 +211,15 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.5rem;
-      min-height: 48px;
-      padding: 0.82rem 1.25rem;
+      gap: 0.48rem;
+      min-height: 50px;
+      padding: 0.86rem 1.25rem;
       border: 1px solid var(--line);
-      border-radius: 999px;
+      border-radius: var(--radius-pill);
       background: var(--surface);
       color: var(--maroon-dark);
-      font-weight: 800;
-      box-shadow: 0 12px 28px rgba(84, 17, 29, 0.08);
+      font-weight: 900;
+      box-shadow: 0 14px 30px rgba(79, 15, 27, 0.08);
       transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     }
 
@@ -189,284 +229,414 @@
       color: #fff;
     }
 
-    .button.status {
+    .button.soft {
       border-color: var(--maroon-soft);
       background: var(--maroon-soft);
       box-shadow: none;
     }
 
-    .button:hover { transform: translateY(-2px); box-shadow: 0 18px 36px rgba(84, 17, 29, 0.14); }
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 38px rgba(79, 15, 27, 0.14);
+    }
 
     .hero-visual {
       position: relative;
-      min-height: 560px;
+      min-height: 590px;
     }
 
-    .portrait-card,
-    .small-card,
-    .metric-card {
+    .portrait,
+    .floating-card,
+    .location-card {
       position: absolute;
-      overflow: hidden;
-      border: 1px solid rgba(234, 222, 216, 0.92);
-      background: var(--surface);
+      border: 1px solid rgba(234, 219, 212, 0.95);
+      background: rgba(255, 255, 255, 0.9);
       box-shadow: var(--shadow);
+      overflow: hidden;
     }
 
-    .portrait-card {
-      inset: 8% 10% auto auto;
-      width: min(72%, 390px);
+    .portrait {
+      right: 2%;
+      top: 5%;
+      width: min(76%, 430px);
       aspect-ratio: 0.78;
-      border-radius: 44% 44% 34px 34px;
+      border-radius: 48% 48% 38px 38px;
       background:
-        radial-gradient(circle at 50% 28%, #f2cdbf 0 16%, transparent 17%),
-        radial-gradient(ellipse at 50% 80%, var(--maroon) 0 30%, transparent 31%),
-        radial-gradient(circle at 46% 25%, #3a2423 0 26%, transparent 27%),
-        linear-gradient(145deg, #f8e8dd, #fff7ef);
+        radial-gradient(circle at 50% 25%, #f1c7b6 0 15%, transparent 16%),
+        radial-gradient(ellipse at 51% 84%, var(--maroon) 0 31%, transparent 32%),
+        radial-gradient(circle at 45% 23%, #382220 0 25%, transparent 26%),
+        radial-gradient(circle at 69% 21%, rgba(255, 255, 255, 0.5), transparent 15%),
+        linear-gradient(145deg, #f7e7de, #fff8ef);
     }
 
-    .portrait-card::before {
+    .portrait::before {
       content: 'JL';
       position: absolute;
       left: 50%;
-      bottom: 19%;
+      bottom: 18%;
       transform: translateX(-50%);
-      color: rgba(255, 255, 255, 0.86);
-      font-size: clamp(3.2rem, 7vw, 5.5rem);
-      font-weight: 800;
-      letter-spacing: -0.14em;
-      text-shadow: 0 10px 25px rgba(84, 17, 29, 0.28);
+      color: rgba(255, 255, 255, 0.88);
+      font-size: clamp(3.4rem, 7vw, 6rem);
+      font-weight: 900;
+      letter-spacing: -0.15em;
+      text-shadow: 0 12px 26px rgba(79, 15, 27, 0.3);
     }
 
-    .small-card {
+    .floating-card {
       left: 0;
       top: 2%;
-      width: min(45%, 220px);
+      width: min(45%, 230px);
       aspect-ratio: 1;
-      border-radius: 38px;
-      padding: 1rem;
+      border-radius: 40px;
+      padding: 1.15rem;
       display: grid;
       align-content: end;
       background:
-        linear-gradient(135deg, rgba(127, 29, 45, 0.82), rgba(84, 17, 29, 0.94)),
-        radial-gradient(circle at 26% 24%, rgba(255, 255, 255, 0.42), transparent 30%);
+        linear-gradient(135deg, rgba(122, 23, 40, 0.88), rgba(79, 15, 27, 0.96)),
+        radial-gradient(circle at 24% 20%, rgba(255, 255, 255, 0.42), transparent 31%);
       color: #fff;
     }
 
-    .small-card strong { font-size: 2.35rem; line-height: 1; letter-spacing: -0.08em; }
-    .small-card span { margin-top: 0.45rem; font-size: 0.9rem; opacity: 0.86; }
-
-    .metric-card {
-      left: 5%;
-      bottom: 4%;
-      width: min(55%, 290px);
-      border-radius: var(--radius);
-      padding: 1.25rem;
+    .floating-card strong {
+      display: block;
+      font-size: 2.6rem;
+      line-height: 1;
+      letter-spacing: -0.1em;
     }
 
-    .metric-card p { color: var(--muted); font-size: 0.92rem; }
-    .metric-card strong { display: block; margin-bottom: 0.35rem; color: var(--maroon); font-size: 1.45rem; letter-spacing: -0.04em; }
+    .floating-card span {
+      margin-top: 0.55rem;
+      color: rgba(255, 255, 255, 0.82);
+      font-weight: 700;
+      line-height: 1.45;
+    }
 
-    .shape-dot {
+    .location-card {
+      left: 7%;
+      bottom: 6%;
+      width: min(58%, 315px);
+      border-radius: var(--radius-xl);
+      padding: 1.35rem;
+    }
+
+    .location-card strong {
+      display: block;
+      margin-bottom: 0.42rem;
+      color: var(--maroon);
+      font-size: 1.45rem;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      line-height: 1.1;
+    }
+
+    .location-card p { color: var(--muted); }
+
+    .decor-circle {
       position: absolute;
-      right: 0;
-      bottom: 16%;
-      width: 124px;
+      right: -1%;
+      bottom: 18%;
+      width: 130px;
       aspect-ratio: 1;
       border-radius: 50%;
       background: var(--gold);
       opacity: 0.24;
     }
 
-    section:not(.hero) { padding: clamp(4rem, 7vw, 6rem) 0; }
-
-    .section-heading {
-      display: grid;
-      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
-      gap: 1.5rem;
-      align-items: end;
-      margin-bottom: 2rem;
+    .section {
+      padding: clamp(4.5rem, 8vw, 7rem) 0;
+      border-top: 1px solid rgba(234, 219, 212, 0.72);
     }
 
-    h2 { font-size: clamp(2.2rem, 5vw, 4.3rem); }
-    .section-heading p, .about-copy p { color: var(--muted); font-size: 1.02rem; }
-
-    .about-grid,
-    .work-grid,
-    .article-grid,
-    .testimonial-grid {
+    .section-head {
       display: grid;
+      grid-template-columns: minmax(0, 0.84fr) minmax(0, 1fr);
+      gap: 1.5rem;
+      align-items: end;
+      margin-bottom: 2.2rem;
+    }
+
+    .section-head p,
+    .about-copy p,
+    .card p,
+    .faq p { color: var(--muted); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr);
       gap: 1rem;
     }
 
-    .about-grid { grid-template-columns: minmax(0, 1.1fr) minmax(290px, 0.9fr); }
-    .about-copy, .panel, .work-card, .article-card, .testimonial-card, .faq-card {
+    .panel,
+    .card,
+    .faq {
       border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.82);
-      box-shadow: 0 18px 48px rgba(84, 17, 29, 0.08);
+      border-radius: var(--radius-xl);
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: 0 20px 52px rgba(79, 15, 27, 0.08);
     }
 
-    .about-copy, .panel { padding: clamp(1.3rem, 3vw, 2rem); }
+    .panel { padding: clamp(1.35rem, 3vw, 2rem); }
     .about-copy p + p { margin-top: 1rem; }
 
-    .pill-list { display: flex; flex-wrap: wrap; gap: 0.65rem; }
-    .pill { padding: 0.55rem 0.8rem; border-radius: 999px; background: var(--surface-soft); color: var(--maroon-dark); font-weight: 800; font-size: 0.86rem; }
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.68rem;
+    }
 
-    .work-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .work-card, .article-card, .testimonial-card, .faq-card { padding: 1.25rem; }
-    .work-card time, .article-card time { color: var(--maroon); font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; }
-    .work-card h3, .article-card h3, .testimonial-card h3 { margin: 0.65rem 0; font-size: 1.2rem; letter-spacing: -0.04em; }
-    .work-card p, .article-card p, .testimonial-card p, .faq-card p { color: var(--muted); }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 0.48rem 0.78rem;
+      border-radius: var(--radius-pill);
+      background: var(--surface-tint);
+      color: var(--maroon-dark);
+      font-size: 0.86rem;
+      font-weight: 900;
+    }
 
-    .article-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .article-card { min-height: 230px; display: grid; align-content: space-between; }
-    .read-link { margin-top: 1.2rem; color: var(--maroon); font-weight: 800; }
+    .grid-3,
+    .insight-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
 
-    .testimonial-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .testimonial-card { background: var(--maroon-dark); color: #fff; }
-    .testimonial-card p { color: rgba(255, 255, 255, 0.78); }
-    .testimonial-card h3 { color: #fff; }
+    .card {
+      padding: 1.35rem;
+    }
 
-    .faq-card { display: grid; gap: 1rem; }
-    details { padding: 1rem; border-radius: 18px; background: var(--surface-soft); }
-    summary { cursor: pointer; color: var(--maroon-dark); font-weight: 800; }
-    details p { margin-top: 0.65rem; color: var(--muted); }
+    .card time,
+    .card .label {
+      display: inline-flex;
+      margin-bottom: 0.78rem;
+      color: var(--maroon);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .card h3 { margin-bottom: 0.62rem; }
+
+    .insight-card {
+      min-height: 246px;
+      display: grid;
+      align-content: space-between;
+    }
+
+    .read-link {
+      display: inline-flex;
+      margin-top: 1.2rem;
+      color: var(--maroon);
+      font-weight: 900;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .testimonial {
+      background: var(--maroon-dark);
+      color: #fff;
+    }
+
+    .testimonial p { color: rgba(255, 255, 255, 0.78); }
+    .testimonial h3 { margin-top: 1rem; color: #fff; }
+
+    .faq {
+      display: grid;
+      gap: 0.9rem;
+      padding: 1rem;
+    }
+
+    details {
+      padding: 1rem;
+      border-radius: var(--radius-lg);
+      background: var(--surface-tint);
+    }
+
+    summary {
+      cursor: pointer;
+      color: var(--maroon-dark);
+      font-weight: 900;
+    }
+
+    details p { margin-top: 0.65rem; }
+
+    .contact-strip {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 1rem;
+      align-items: center;
+      padding: clamp(1.4rem, 3vw, 2.1rem);
+      border-radius: var(--radius-xl);
+      background: var(--maroon);
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-strip p { color: rgba(255, 255, 255, 0.78); }
+    .contact-strip .button { border-color: rgba(255, 255, 255, 0.28); box-shadow: none; }
 
     footer {
       padding: 2rem 0 3rem;
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: 0.92rem;
     }
 
     @keyframes blink { 50% { opacity: 0; } }
 
-    @media (max-width: 900px) {
-      .hero, .section-heading, .about-grid { grid-template-columns: 1fr; }
-      .hero { padding-top: 3.2rem; }
-      .hero-visual { min-height: 480px; }
-      .work-grid, .article-grid, .testimonial-grid { grid-template-columns: 1fr; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+    }
+
+    @media (max-width: 920px) {
+      .hero,
+      .section-head,
+      .about-grid,
+      .contact-strip { grid-template-columns: 1fr; }
+
+      .hero { min-height: auto; padding-top: 3.8rem; }
+      .hero-visual { min-height: 500px; }
+      .grid-3, .insight-grid, .testimonial-grid { grid-template-columns: 1fr; }
+      .contact-strip { justify-items: start; }
     }
 
     @media (max-width: 680px) {
-      .page-shell { width: min(100% - 28px, 1160px); }
-      .nav-inner { align-items: flex-start; flex-direction: column; padding: 0.9rem 0; }
-      .nav-links { width: 100%; flex-wrap: wrap; gap: 0.8rem 1rem; font-size: 0.86rem; }
-      h1 { font-size: clamp(3rem, 17vw, 5rem); }
-      .hero-visual { min-height: 390px; }
-      .portrait-card { width: 70%; right: 0; }
-      .small-card { width: 42%; }
-      .metric-card { width: 68%; left: 0; }
+      :root { --container: min(100% - 28px, 1180px); }
+      .nav { align-items: flex-start; flex-direction: column; padding: 0.95rem 0; }
+      .nav-links { width: 100%; flex-wrap: wrap; gap: 0.75rem 1rem; font-size: 0.86rem; }
+      .nav-links a::after { display: none; }
+      h1 { font-size: clamp(3rem, 16vw, 5.15rem); }
+      .hero-visual { min-height: 400px; }
+      .portrait { right: 0; width: 72%; }
+      .floating-card { width: 45%; border-radius: 30px; }
+      .location-card { left: 0; width: 72%; }
     }
   </style>
 </head>
 <body>
   <header class="site-header">
-    <nav class="page-shell nav-inner" aria-label="Primary navigation">
-      <a class="brand" href="#home"><span class="brand-mark">JL</span><span>Jasper Lee</span></a>
+    <nav class="container nav" aria-label="Primary navigation">
+      <a class="brand" href="#home"><span class="brand-badge">JL</span><span>Jasper Lee</span></a>
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#insights">Insights</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <main class="page-shell">
+  <main class="container">
     <section id="home" class="hero" aria-label="Landing page introduction">
       <div>
-        <div class="eyebrow">People operations portfolio</div>
-        <h1>Hey, I'm <span class="name-highlight">Jasper Lee</span></h1>
+        <div class="kicker">People operations portfolio</div>
+        <h1>Hi, I'm <span class="accent">Jasper Lee</span></h1>
         <p class="typing-line" aria-live="polite"><span id="typingText" class="typing-text"></span></p>
-        <p class="hero-copy">I build practical, employee-friendly HR operations across onboarding, payroll coordination, compliance documentation, and process improvement.</p>
+        <p class="hero-copy">I support teams with practical, employee-friendly HR operations across onboarding, payroll coordination, compliance documentation, employee records, and process improvement.</p>
         <div class="hero-actions">
-          <a class="button primary" href="#experience">View resume</a>
-          <a class="button status" href="#contact">Available for HR projects</a>
+          <a class="button primary" href="#resume">Resume ↓</a>
+          <a class="button soft" href="#contact">Contact ✉</a>
         </div>
       </div>
 
       <div class="hero-visual" aria-hidden="true">
-        <div class="small-card"><strong>HR</strong><span>Operations, payroll and employee support.</span></div>
-        <div class="portrait-card"></div>
-        <div class="metric-card"><strong>Based in Singapore</strong><p>Focused on dependable HR service delivery, clear processes, and compliant documentation.</p></div>
-        <div class="shape-dot"></div>
+        <div class="floating-card"><strong>HR</strong><span>Structured support for every employee touchpoint.</span></div>
+        <div class="portrait"></div>
+        <div class="location-card"><strong>Based in Singapore</strong><p>Focused on dependable HR service delivery, compliant documentation, and smoother people processes.</p></div>
+        <div class="decor-circle"></div>
       </div>
     </section>
 
-    <section id="about">
-      <div class="section-heading">
+    <section id="about" class="section">
+      <div class="section-head">
         <h2>About me</h2>
-        <p>Like the reference site, this section keeps the story direct and spacious: a short profile, a simple skills panel, and generous white space.</p>
+        <p>A warm, minimal introduction section inspired by the supplied portfolio reference, using white space first and maroon only where it creates emphasis.</p>
       </div>
       <div class="about-grid">
-        <div class="about-copy">
-          <p>I am an HR professional who supports the full employee lifecycle, from hiring coordination and onboarding through payroll support, documentation, employee queries, and offboarding.</p>
-          <p>My approach is structured and service-led. I enjoy turning repeated manual steps into simple workflows that make HR easier to operate and easier for employees to understand.</p>
+        <div class="panel about-copy">
+          <p>I am an HR professional with experience supporting the full employee lifecycle, including hiring coordination, onboarding, payroll support, compliance documentation, employee queries, and offboarding.</p>
+          <p>My work style is structured, discreet, and service-led. I like making HR processes clear for employees and reliable for the teams responsible for running them.</p>
         </div>
-        <div class="panel">
-          <div class="pill-list" aria-label="Core HR skills">
+        <aside class="panel" aria-label="Core HR strengths">
+          <div class="pill-list">
+            <span class="pill">Employee lifecycle</span>
             <span class="pill">Onboarding</span>
             <span class="pill">Payroll support</span>
-            <span class="pill">Employee records</span>
-            <span class="pill">Compliance</span>
+            <span class="pill">CPF / MOM / IRAS</span>
+            <span class="pill">HR documentation</span>
             <span class="pill">HR systems</span>
             <span class="pill">Process improvement</span>
             <span class="pill">Singapore HR</span>
           </div>
-        </div>
+        </aside>
       </div>
     </section>
 
-    <section id="experience">
-      <div class="section-heading">
-        <h2>Work experience</h2>
-        <p>A clean resume-style timeline inspired by the reference layout, adapted for an HR professional portfolio.</p>
+    <section id="resume" class="section">
+      <div class="section-head">
+        <h2>Resume highlights</h2>
+        <p>Concise cards keep the page scannable while showing the HR capabilities most relevant to employers and collaborators.</p>
       </div>
-      <div class="work-grid">
-        <article class="work-card"><time>2024 — Present</time><h3>HR Operations</h3><p>Employee lifecycle administration, HR documentation, query handling, onboarding coordination, and offboarding support.</p></article>
-        <article class="work-card"><time>Payroll</time><h3>Payroll & statutory support</h3><p>Monthly payroll coordination with attention to CPF, MOM, IRAS, WICA, records accuracy, and audit-ready documentation.</p></article>
-        <article class="work-card"><time>Systems</time><h3>HR process improvement</h3><p>Workflow mapping, tracker design, template standardisation, and light automation ideas for recurring HR tasks.</p></article>
-      </div>
-    </section>
-
-    <section id="insights">
-      <div class="section-heading">
-        <h2>Latest insights</h2>
-        <p>Short article cards echo the referenced portfolio structure while keeping the content relevant to HR operations.</p>
-      </div>
-      <div class="article-grid">
-        <article class="article-card"><div><time>HR Systems</time><h3>Making onboarding easier to follow</h3><p>How checklists, owners, and document templates reduce confusion for new hires and HR teams.</p></div><a class="read-link" href="#contact">Read note →</a></article>
-        <article class="article-card"><div><time>Payroll</time><h3>Designing audit-ready payroll handoffs</h3><p>A practical view of clean inputs, exception logs, and review points before monthly processing.</p></div><a class="read-link" href="#contact">Read note →</a></article>
-        <article class="article-card"><div><time>Process</time><h3>Turning repeated HR questions into self-service</h3><p>Simple knowledge-base structures that help employees find accurate answers faster.</p></div><a class="read-link" href="#contact">Read note →</a></article>
+      <div class="grid-3">
+        <article class="card"><time>Operations</time><h3>Employee lifecycle support</h3><p>Maintaining accurate records, preparing employment documents, coordinating onboarding tasks, and supporting offboarding steps.</p></article>
+        <article class="card"><time>Payroll</time><h3>Payroll coordination</h3><p>Supporting monthly payroll inputs, checking exceptions, maintaining documentation, and coordinating Singapore statutory requirements.</p></article>
+        <article class="card"><time>Systems</time><h3>Workflow improvement</h3><p>Mapping repeated HR tasks, improving trackers and templates, and creating simple workflows that reduce manual follow-up.</p></article>
       </div>
     </section>
 
-    <section>
-      <div class="section-heading">
-        <h2>Testimonials</h2>
-        <p>Warm maroon blocks provide the secondary colour emphasis while keeping the overall page bright and minimal.</p>
+    <section id="portfolio" class="section">
+      <div class="section-head">
+        <h2>Portfolio</h2>
+        <p>Examples are framed as practical HR operations projects rather than heavy product demos, matching the clean reference-site structure.</p>
+      </div>
+      <div class="insight-grid">
+        <article class="card insight-card"><div><span class="label">Project</span><h3>Onboarding readiness tracker</h3><p>A checklist-style tracker for owners, due dates, employment documents, first-day setup, and follow-up reminders.</p></div><a class="read-link" href="#contact">Discuss project →</a></article>
+        <article class="card insight-card"><div><span class="label">Project</span><h3>Payroll exception log</h3><p>A simple review workflow to capture monthly payroll changes, pending evidence, approvals, and final resolution status.</p></div><a class="read-link" href="#contact">Discuss project →</a></article>
+        <article class="card insight-card"><div><span class="label">Project</span><h3>HR knowledge base outline</h3><p>A self-service structure for common employee questions, policy summaries, escalation paths, and document templates.</p></div><a class="read-link" href="#contact">Discuss project →</a></article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="testimonials-title">
+      <div class="section-head">
+        <h2 id="testimonials-title">Testimonials</h2>
+        <p>Maroon testimonial blocks add contrast while preserving the overall white-background look requested for the site.</p>
       </div>
       <div class="testimonial-grid">
-        <article class="testimonial-card"><p>“Jasper brings structure and care to HR operations, making complex employee processes feel clear and manageable.”</p><h3>People Operations Lead</h3></article>
-        <article class="testimonial-card"><p>“His attention to detail helps payroll, documentation, and compliance workflows move with fewer surprises.”</p><h3>Finance Partner</h3></article>
+        <article class="card testimonial"><p>“Jasper brings structure and care to HR operations, making complex employee processes feel clear and manageable.”</p><h3>People Operations Lead</h3></article>
+        <article class="card testimonial"><p>“His attention to detail helps payroll, documentation, and compliance workflows move with fewer surprises.”</p><h3>Finance Partner</h3></article>
       </div>
     </section>
 
-    <section id="contact">
-      <div class="section-heading">
-        <h2>Frequently asked questions</h2>
-        <p>Use this area for common hiring or collaboration questions, similar to the FAQ section on the reference site.</p>
+    <section id="contact" class="section">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <p>Use this area for your email, LinkedIn, or booking link. The layout is intentionally simple so it works well on static hosting.</p>
       </div>
-      <div class="faq-card">
-        <details open><summary>What HR work do you focus on?</summary><p>Employee lifecycle administration, onboarding, payroll coordination, HR records, compliance documentation, and process improvement.</p></details>
+      <div class="contact-strip">
+        <div>
+          <h3>Let's connect about HR operations.</h3>
+          <p>Add your preferred contact details here when you are ready to publish.</p>
+        </div>
+        <a class="button" href="mailto:hello@example.com">hello@example.com</a>
+      </div>
+      <div class="faq" aria-label="Frequently asked questions">
+        <details open><summary>What HR work do you focus on?</summary><p>Employee lifecycle administration, onboarding coordination, payroll support, HR records, compliance documentation, and process improvement.</p></details>
         <details><summary>Where are you based?</summary><p>I am based in Singapore and focus on HR operations suited for Singapore teams and employment processes.</p></details>
-        <details><summary>How can someone contact you?</summary><p>Add your email, LinkedIn, or preferred contact form here to turn this section into a live contact area.</p></details>
+        <details><summary>Can this site be hosted statically?</summary><p>Yes. The page is a single static HTML file with CSS and a small JavaScript typing effect. It does not require a backend or API key.</p></details>
       </div>
     </section>
   </main>
 
-  <footer class="page-shell">© 2026 Jasper Lee · HR professional · Based in Singapore</footer>
+  <footer class="container">© 2026 Jasper Lee · HR professional · Based in Singapore</footer>
 
   <script>
     const typingText = document.querySelector('#typingText');
