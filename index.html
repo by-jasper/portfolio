@@ -75,14 +75,13 @@
     .nav-links a:hover, .nav-links a:focus-visible { color: var(--navy); }
     .nav-links a:hover::after, .nav-links a:focus-visible::after { transform: scaleX(1); }
 
-    .hero { min-height: calc(100vh - 76px); display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr); gap: clamp(2rem, 6vw, 5rem); align-items: center; padding: clamp(4rem, 8vw, 7rem) 0; }
-    .kicker { display: inline-flex; align-items: center; gap: 0.65rem; margin-bottom: 1.1rem; color: var(--teal); font-size: 0.78rem; font-weight: 900; letter-spacing: 0.14em; text-transform: uppercase; }
-    .kicker::before { content: ''; width: 38px; height: 2px; background: linear-gradient(90deg, var(--teal), var(--gold)); }
+    .hero { min-height: calc(100vh - 76px); display: flex; align-items: center; padding: clamp(4rem, 8vw, 7rem) 0; }
+    .hero-inner { max-width: 890px; }
+    .hero-subtitle { margin-top: 1rem; color: var(--teal); font-size: clamp(1.25rem, 2.3vw, 2rem); font-weight: 900; letter-spacing: -0.035em; }
     h1, h2, h3 { line-height: 1.06; letter-spacing: -0.045em; color: var(--navy); }
     h1 { max-width: 830px; font-size: clamp(2.85rem, 7vw, 6.8rem); font-weight: 900; }
     h2 { font-size: clamp(2rem, 4.8vw, 4.2rem); font-weight: 900; }
     h3 { font-size: 1.2rem; font-weight: 900; }
-    .accent { color: var(--teal); }
     .hero-copy { max-width: 710px; margin-top: 1.35rem; color: var(--muted); font-size: clamp(1rem, 1.5vw, 1.17rem); }
     .hero-copy strong { color: var(--navy); }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 0.85rem; margin-top: 2rem; }
@@ -91,12 +90,6 @@
     .button.primary { border-color: var(--teal); background: var(--navy); color: #fff; }
     .button:hover, .button:focus-visible { transform: translateY(-2px); box-shadow: 0 18px 34px rgba(16, 42, 67, 0.14); }
 
-    .hero-panel { padding: clamp(1.4rem, 3vw, 2rem); border: 1px solid rgba(217, 226, 236, 0.9); border-radius: var(--radius-xl); background: rgba(255, 255, 255, 0.82); box-shadow: var(--shadow); }
-    .profile-placeholder { min-height: 260px; display: grid; place-items: center; margin-bottom: 1.2rem; border: 1px dashed rgba(44, 177, 188, 0.65); border-radius: 24px; background: linear-gradient(135deg, rgba(16, 42, 67, 0.92), rgba(44, 177, 188, 0.82)); color: #fff; text-align: center; padding: 2rem; }
-    .profile-placeholder strong { display: block; font-size: 1.4rem; line-height: 1.2; }
-    .profile-placeholder span { display: block; margin-top: 0.65rem; color: rgba(255,255,255,0.82); }
-    .pill-list { display: flex; flex-wrap: wrap; gap: 0.58rem; }
-    .pill { display: inline-flex; align-items: center; min-height: 34px; padding: 0.45rem 0.78rem; border: 1px solid rgba(44, 177, 188, 0.26); border-radius: var(--radius-pill); background: var(--soft-teal); color: var(--navy); font-size: 0.84rem; font-weight: 800; }
 
     .section { padding: clamp(4rem, 8vw, 7rem) 0; scroll-margin-top: 96px; }
     .section:nth-of-type(even) { background: rgba(245, 247, 250, 0.66); box-shadow: 0 0 0 100vmax rgba(245, 247, 250, 0.66); clip-path: inset(0 -100vmax); }
@@ -134,7 +127,7 @@
     .footer-links { display: flex; flex-wrap: wrap; gap: 1rem; list-style: none; font-weight: 800; color: var(--navy); }
 
     @media (max-width: 980px) {
-      .hero, .grid-2, .grid-3, .grid-4, .skill-groups { grid-template-columns: 1fr; }
+      .grid-2, .grid-3, .grid-4, .skill-groups { grid-template-columns: 1fr; }
       .hero { min-height: auto; }
       .menu-button { display: inline-flex; }
       .nav-links { position: absolute; inset: 76px 20px auto 20px; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 0.8rem; border: 1px solid var(--line); border-radius: 20px; background: #fff; box-shadow: var(--shadow); }
@@ -149,7 +142,6 @@
       .hero-actions, .contact-strip, .footer-inner { flex-direction: column; align-items: stretch; }
       .button { width: 100%; }
       h1 { font-size: clamp(2.55rem, 15vw, 4.2rem); }
-      .profile-placeholder { min-height: 220px; }
     }
   </style>
 </head>
@@ -158,9 +150,8 @@
   <header class="site-header">
     <nav class="nav container" aria-label="Main navigation">
       <a class="brand" href="#home" aria-label="Home">
-        <span class="brand-badge">HR</span>
-        <!-- TODO: Replace with final full name or preferred site brand. -->
-        <span>HR Portfolio</span>
+        <span class="brand-badge">JL</span>
+        <span>Jasper Lee</span>
       </a>
       <input type="checkbox" id="nav-toggle" aria-label="Toggle navigation menu" />
       <label class="menu-button" for="nav-toggle"><span aria-hidden="true"></span> Menu</label>
@@ -179,41 +170,26 @@
 
   <main id="main">
     <section id="home" class="container hero">
-      <div>
-        <span class="kicker">Singapore-based HR portfolio</span>
-        <h1>HR Operations &amp; Payroll Professional <span class="accent">| AI &amp; Process Improvement Enthusiast</span></h1>
-        <p class="hero-copy"><strong>I help improve HR operations through payroll accuracy, employee service, workflow improvement, and practical automation.</strong></p>
-        <p class="hero-copy">I strongly believe AI will change the way HR operates in the future. My interest is in using AI responsibly to reduce repetitive HR work, improve policy access, support employee queries, and help HR teams focus more on people and business outcomes.</p>
+      <div class="hero-inner">
+        <h1>HR Professional</h1>
+        <p class="hero-subtitle">People, Process, Technology &amp; Responsible AI</p>
+        <p class="hero-copy"><strong>I support HR work by improving employee service, strengthening process accuracy, and making HR information easier to access and understand.</strong></p>
+        <p class="hero-copy">My experience covers payroll, employee query management, HR system migration, employee benefits, work pass matters, and well-rounded HR support functions. I focus on practical solutions that improve HR work for both employees and the organisation.</p>
+        <p class="hero-copy">I strongly believe AI will change the way HR operates in the future. Rather than seeing AI as a replacement, I believe HR professionals should learn how to use AI responsibly — to improve workflow design, support automation, strengthen communication, and enhance knowledge access while protecting confidential employee data.</p>
         <div class="hero-actions" aria-label="Primary actions">
-          <a class="button primary" href="#case-studies">View My Work</a>
-          <a class="button" href="#hr-portal">Explore HR Portal</a>
           <!-- TODO: Replace resume.pdf with final resume file. -->
-          <a class="button" href="resume.pdf" download>Download Resume</a>
+          <a class="button primary" href="resume.pdf" download>Download Resume</a>
           <a class="button" href="#contact">Contact Me</a>
         </div>
       </div>
-      <aside class="hero-panel" aria-label="Portfolio focus areas">
-        <div class="profile-placeholder" role="img" aria-label="Profile image placeholder">
-          <!-- TODO: Replace this placeholder with a professional profile photo. -->
-          <div><strong>HR Operations, Payroll &amp; AI-Enabled Process Improvement</strong><span>Professional portfolio plus practical HR knowledge hub.</span></div>
-        </div>
-        <div class="pill-list">
-          <span class="pill">HR Operations</span>
-          <span class="pill">Payroll</span>
-          <span class="pill">HR Systems</span>
-          <span class="pill">Process Improvement</span>
-          <span class="pill">AI in HR</span>
-          <span class="pill">Automation</span>
-        </div>
-      </aside>
     </section>
 
     <section class="section" aria-labelledby="bring-title">
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">What I Bring</span>
-          <h2 id="bring-title">Practical HR operations experience with a future-ready mindset.</h2>
-          <p>Clear, recruiter-friendly highlights across HR service delivery, compliance, systems, process improvement, and responsible AI use.</p>
+          <h2 id="bring-title">Focused strengths for practical HR work.</h2>
+          <p>A concise view of the service, accuracy, systems, and improvement skills I bring to HR teams.</p>
         </div>
         <div class="grid-4">
           <article class="card"><span class="label">Operations</span><h3>HR Operations &amp; Payroll</h3><p>Experience in payroll processing, leave, benefits, work pass, employee queries, vendor coordination, and HR shared services.</p></article>
@@ -229,9 +205,8 @@
         <div class="section-head">
           <span class="eyebrow">About</span>
           <h2>People operations grounded in service, accuracy, and practical problem-solving.</h2>
-          <p>I am an HR professional based in Singapore with experience across HR Operations, Payroll, HR Shared Services, employee queries, leave and benefits administration, work pass coordination, HR systems, and process improvement.</p>
-          <p>My work experience has given me exposure to both the operational and human side of HR. I enjoy solving practical HR problems, improving processes, and making complex information easier for employees and stakeholders to understand.</p>
-          <p>In recent years, I have developed a strong interest in automation and AI. I believe HR professionals who understand both people and technology will be better prepared for the future of work.</p>
+          <p>I am an HR professional based in Singapore with experience in payroll, employee support, benefits, work pass coordination, HR systems, and process improvement.</p>
+          <p>I enjoy solving practical HR problems and making complex information easier for employees and stakeholders to understand.</p>
         </div>
         <div class="card">
           <span class="label">Career interest</span>
@@ -330,12 +305,12 @@
       <div class="container grid-2">
         <div class="section-head">
           <span class="eyebrow">Resume</span>
-          <h2>Download the resume or review the portfolio highlights.</h2>
-          <p>The portfolio supplements the resume by showing practical HR operations, payroll, systems, automation, and responsible AI themes.</p>
+          <h2>Download the resume.</h2>
+          <p>Use the resume for a concise view of my HR experience and career background.</p>
           <!-- TODO: Replace resume.pdf with final resume file. -->
           <a class="button primary" href="resume.pdf" download>Download Resume</a>
         </div>
-        <article class="card"><span class="label">TODO placeholders</span><h3>Update before publishing</h3><ul><li>Full name and preferred professional headline</li><li>Exact years of experience</li><li>Actual job titles</li><li>Verified measurable achievements</li><li>Certifications</li><li>Final resume PDF</li></ul></article>
+        <article class="card"><span class="label">At a glance</span><h3>Relevant areas</h3><ul><li>HR Operations and Payroll</li><li>Employee Service and Communication</li><li>HR Systems and Process Improvement</li><li>Responsible AI and Automation Interest</li></ul></article>
       </div>
     </section>
 
@@ -344,7 +319,7 @@
         <div class="section-head">
           <span class="eyebrow">Contact</span>
           <h2>Let’s connect about HR operations, payroll, systems, or process improvement opportunities.</h2>
-          <p>Use this area for the final email address, LinkedIn profile, and any preferred contact method.</p>
+          <p>Please use the contact details below for suitable opportunities or professional conversations.</p>
         </div>
         <div class="contact-strip">
           <div>
