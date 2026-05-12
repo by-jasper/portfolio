@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Jasper Lee is an HR professional based in Singapore, focused on employee lifecycle operations, payroll coordination, HR systems, and process improvement." />
-  <title>Jasper Lee — HR Professional</title>
+  <meta name="description" content="Personal portfolio of a Singapore-based HR Operations and Payroll professional with experience in HR Shared Services, process improvement, automation, and responsible AI use in HR." />
+  <meta name="keywords" content="HR Operations Singapore, Payroll Professional Singapore, HR Shared Services, HR Automation, AI in HR, HRIS, People Operations, HR Process Improvement" />
+  <title>HR Operations &amp; Payroll Professional | AI &amp; Process Improvement</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -12,23 +13,21 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --paper: #fffdf9;
-      --paper-warm: #fbf3ee;
-      --surface: #ffffff;
-      --surface-tint: #fff7f4;
-      --ink: #221917;
-      --muted: #766761;
-      --maroon: #7a1728;
-      --maroon-dark: #4f0f1b;
-      --maroon-soft: #f3dbe1;
-      --clay: #b9725d;
-      --gold: #d49a4f;
-      --line: #eadbd4;
-      --shadow: 0 28px 80px rgba(79, 15, 27, 0.12);
-      --radius-xl: 34px;
-      --radius-lg: 24px;
+      --navy: #102a43;
+      --navy-deep: #0b1f33;
+      --teal: #2cb1bc;
+      --gold: #d4a017;
+      --ink: #1f2933;
+      --muted: #6b7280;
+      --paper: #ffffff;
+      --soft: #f5f7fa;
+      --soft-teal: #e8f7f8;
+      --line: #d9e2ec;
+      --shadow: 0 22px 60px rgba(16, 42, 67, 0.12);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
       --radius-pill: 999px;
-      --container: min(1180px, calc(100% - 40px));
+      --container: min(1160px, calc(100% - 40px));
       --font: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     }
 
@@ -37,9 +36,9 @@
     body {
       min-height: 100vh;
       background:
-        radial-gradient(circle at 78% 8%, rgba(122, 23, 40, 0.10), transparent 26rem),
-        radial-gradient(circle at 10% 46%, rgba(212, 154, 79, 0.10), transparent 24rem),
-        linear-gradient(180deg, var(--paper) 0%, #fff9f5 52%, var(--paper) 100%);
+        radial-gradient(circle at 80% 8%, rgba(44, 177, 188, 0.14), transparent 24rem),
+        radial-gradient(circle at 10% 40%, rgba(212, 160, 23, 0.10), transparent 22rem),
+        linear-gradient(180deg, var(--paper) 0%, var(--soft) 48%, var(--paper) 100%);
       color: var(--ink);
       font-family: var(--font);
       line-height: 1.65;
@@ -49,630 +48,331 @@
     a { color: inherit; text-decoration: none; }
     button { font: inherit; }
 
-    .container {
-      width: var(--container);
-      margin-inline: auto;
-    }
+    .container { width: var(--container); margin-inline: auto; }
+    .skip-link { position: absolute; left: -999px; top: 1rem; z-index: 99; padding: 0.8rem 1rem; background: var(--navy); color: #fff; border-radius: 12px; }
+    .skip-link:focus { left: 1rem; }
 
     .site-header {
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(255, 253, 249, 0.88);
-      border-bottom: 1px solid rgba(234, 219, 212, 0.72);
+      background: rgba(255, 255, 255, 0.9);
+      border-bottom: 1px solid rgba(217, 226, 236, 0.8);
       backdrop-filter: blur(18px);
     }
 
-    .nav {
-      min-height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
-    }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .brand { display: inline-flex; align-items: center; gap: 0.8rem; font-size: 1rem; font-weight: 900; letter-spacing: -0.03em; color: var(--navy); }
+    .brand-badge { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; background: var(--navy); color: #fff; box-shadow: 0 14px 28px rgba(16, 42, 67, 0.2); }
 
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.8rem;
-      font-size: 1.02rem;
-      font-weight: 900;
-      letter-spacing: -0.05em;
-    }
+    #nav-toggle { position: absolute; opacity: 0; pointer-events: none; }
+    .menu-button { display: none; align-items: center; gap: 0.5rem; min-height: 44px; padding: 0.65rem 0.9rem; border: 1px solid var(--line); border-radius: var(--radius-pill); color: var(--navy); font-weight: 800; cursor: pointer; }
+    .menu-button span { width: 18px; height: 2px; background: var(--navy); box-shadow: 0 6px 0 var(--navy), 0 -6px 0 var(--navy); }
 
-    .brand-badge {
-      width: 44px;
-      height: 44px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: var(--maroon);
-      color: #fff;
-      box-shadow: 0 14px 28px rgba(122, 23, 40, 0.2);
-    }
+    .nav-links { display: flex; align-items: center; gap: clamp(0.8rem, 2vw, 1.55rem); list-style: none; color: var(--muted); font-size: 0.92rem; font-weight: 800; }
+    .nav-links a { position: relative; transition: color 0.2s ease; }
+    .nav-links a::after { content: ''; position: absolute; left: 0; right: 0; bottom: -0.35rem; height: 2px; border-radius: var(--radius-pill); background: var(--teal); transform: scaleX(0); transition: transform 0.2s ease; }
+    .nav-links a:hover, .nav-links a:focus-visible { color: var(--navy); }
+    .nav-links a:hover::after, .nav-links a:focus-visible::after { transform: scaleX(1); }
 
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: clamp(0.9rem, 2.4vw, 2.1rem);
-      list-style: none;
-      color: var(--muted);
-      font-size: 0.94rem;
-      font-weight: 800;
-    }
+    .hero { min-height: calc(100vh - 76px); display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr); gap: clamp(2rem, 6vw, 5rem); align-items: center; padding: clamp(4rem, 8vw, 7rem) 0; }
+    .kicker { display: inline-flex; align-items: center; gap: 0.65rem; margin-bottom: 1.1rem; color: var(--teal); font-size: 0.78rem; font-weight: 900; letter-spacing: 0.14em; text-transform: uppercase; }
+    .kicker::before { content: ''; width: 38px; height: 2px; background: linear-gradient(90deg, var(--teal), var(--gold)); }
+    h1, h2, h3 { line-height: 1.06; letter-spacing: -0.045em; color: var(--navy); }
+    h1 { max-width: 830px; font-size: clamp(2.85rem, 7vw, 6.8rem); font-weight: 900; }
+    h2 { font-size: clamp(2rem, 4.8vw, 4.2rem); font-weight: 900; }
+    h3 { font-size: 1.2rem; font-weight: 900; }
+    .accent { color: var(--teal); }
+    .hero-copy { max-width: 710px; margin-top: 1.35rem; color: var(--muted); font-size: clamp(1rem, 1.5vw, 1.17rem); }
+    .hero-copy strong { color: var(--navy); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.85rem; margin-top: 2rem; }
 
-    .nav-links a {
-      position: relative;
-      transition: color 0.2s ease;
-    }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 0.48rem; min-height: 50px; padding: 0.82rem 1.18rem; border: 1px solid var(--line); border-radius: var(--radius-pill); background: var(--paper); color: var(--navy); font-weight: 900; box-shadow: 0 14px 30px rgba(16, 42, 67, 0.08); transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease; }
+    .button.primary { border-color: var(--teal); background: var(--navy); color: #fff; }
+    .button:hover, .button:focus-visible { transform: translateY(-2px); box-shadow: 0 18px 34px rgba(16, 42, 67, 0.14); }
 
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -0.4rem;
-      height: 2px;
-      border-radius: 999px;
-      background: var(--maroon);
-      transform: scaleX(0);
-      transform-origin: center;
-      transition: transform 0.2s ease;
-    }
+    .hero-panel { padding: clamp(1.4rem, 3vw, 2rem); border: 1px solid rgba(217, 226, 236, 0.9); border-radius: var(--radius-xl); background: rgba(255, 255, 255, 0.82); box-shadow: var(--shadow); }
+    .profile-placeholder { min-height: 260px; display: grid; place-items: center; margin-bottom: 1.2rem; border: 1px dashed rgba(44, 177, 188, 0.65); border-radius: 24px; background: linear-gradient(135deg, rgba(16, 42, 67, 0.92), rgba(44, 177, 188, 0.82)); color: #fff; text-align: center; padding: 2rem; }
+    .profile-placeholder strong { display: block; font-size: 1.4rem; line-height: 1.2; }
+    .profile-placeholder span { display: block; margin-top: 0.65rem; color: rgba(255,255,255,0.82); }
+    .pill-list { display: flex; flex-wrap: wrap; gap: 0.58rem; }
+    .pill { display: inline-flex; align-items: center; min-height: 34px; padding: 0.45rem 0.78rem; border: 1px solid rgba(44, 177, 188, 0.26); border-radius: var(--radius-pill); background: var(--soft-teal); color: var(--navy); font-size: 0.84rem; font-weight: 800; }
 
-    .nav-links a:hover,
-    .nav-links a:focus-visible { color: var(--maroon); }
-    .nav-links a:hover::after,
-    .nav-links a:focus-visible::after { transform: scaleX(1); }
+    .section { padding: clamp(4rem, 8vw, 7rem) 0; scroll-margin-top: 96px; }
+    .section:nth-of-type(even) { background: rgba(245, 247, 250, 0.66); box-shadow: 0 0 0 100vmax rgba(245, 247, 250, 0.66); clip-path: inset(0 -100vmax); }
+    .section-head { max-width: 810px; margin-bottom: clamp(1.8rem, 4vw, 3rem); }
+    .section-head p { margin-top: 1rem; color: var(--muted); font-size: 1.05rem; }
+    .eyebrow { display: inline-block; margin-bottom: 0.75rem; color: var(--teal); font-size: 0.77rem; font-weight: 900; letter-spacing: 0.14em; text-transform: uppercase; }
 
-    .hero {
-      min-height: calc(100vh - 78px);
-      display: grid;
-      grid-template-columns: minmax(0, 1.02fr) minmax(340px, 0.98fr);
-      gap: clamp(2.25rem, 6vw, 5.5rem);
-      align-items: center;
-      padding: clamp(4rem, 8vw, 7.5rem) 0 clamp(5rem, 8vw, 7rem);
-    }
+    .grid-2, .grid-3, .grid-4 { display: grid; gap: 1rem; }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .card { min-height: 100%; padding: 1.45rem; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--paper); box-shadow: 0 12px 30px rgba(16, 42, 67, 0.07); }
+    .card p, .card li { color: var(--muted); }
+    .card p { margin-top: 0.75rem; }
+    .card ul { margin-top: 0.85rem; padding-left: 1.05rem; }
+    .card li + li { margin-top: 0.42rem; }
+    .label { display: inline-block; margin-bottom: 0.7rem; color: var(--teal); font-size: 0.74rem; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase; }
+    .highlight { border-color: rgba(44, 177, 188, 0.44); background: linear-gradient(135deg, #fff, var(--soft-teal)); }
+    .dark-card { background: var(--navy); color: #fff; border-color: var(--navy); }
+    .dark-card h3, .dark-card p, .dark-card li { color: #fff; }
+    .dark-card p, .dark-card li { color: rgba(255,255,255,0.8); }
 
-    .kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.65rem;
-      margin-bottom: 1.15rem;
-      color: var(--maroon);
-      font-size: 0.78rem;
-      font-weight: 900;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-    }
+    .case-card { display: grid; gap: 0.9rem; }
+    .case-meta { display: grid; gap: 0.75rem; }
+    .case-meta div { padding-top: 0.75rem; border-top: 1px solid var(--line); }
+    .case-meta strong { display: block; color: var(--navy); margin-bottom: 0.25rem; }
+    .skill-groups { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+    .contact-strip { display: flex; align-items: center; justify-content: space-between; gap: 1.4rem; padding: clamp(1.4rem, 3vw, 2rem); border-radius: var(--radius-xl); background: var(--navy); color: #fff; box-shadow: var(--shadow); }
+    .contact-strip h3 { color: #fff; }
+    .contact-strip p { margin-top: 0.45rem; color: rgba(255,255,255,0.78); }
+    .contact-strip .button { box-shadow: none; white-space: nowrap; }
+    .note { margin-top: 1rem; color: var(--muted); font-size: 0.95rem; }
+    .footer { padding: 2.4rem 0; color: var(--muted); }
+    .footer-inner { display: flex; justify-content: space-between; gap: 1rem; border-top: 1px solid var(--line); padding-top: 1.6rem; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 1rem; list-style: none; font-weight: 800; color: var(--navy); }
 
-    .kicker::before {
-      content: '';
-      width: 38px;
-      height: 2px;
-      background: linear-gradient(90deg, var(--maroon), var(--gold));
-    }
-
-    h1, h2, h3 {
-      line-height: 1.02;
-      letter-spacing: -0.065em;
-    }
-
-    h1 {
-      max-width: 760px;
-      font-size: clamp(3.4rem, 8.5vw, 7.8rem);
-      font-weight: 900;
-    }
-
-    h2 {
-      font-size: clamp(2.2rem, 5.4vw, 4.7rem);
-      font-weight: 900;
-    }
-
-    h3 { font-size: 1.25rem; font-weight: 900; }
-
-    .accent { color: var(--maroon); }
-
-    .typing-line {
-      min-height: 2.35rem;
-      margin-top: 1.15rem;
-      color: var(--maroon-dark);
-      font-size: clamp(1.1rem, 2vw, 1.5rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-    }
-
-    .typing-text::after {
-      content: '';
-      display: inline-block;
-      width: 0.1em;
-      height: 1.05em;
-      margin-left: 0.14em;
-      transform: translateY(0.16em);
-      background: var(--maroon);
-      animation: blink 0.8s steps(1) infinite;
-    }
-
-    .hero-copy {
-      max-width: 650px;
-      margin-top: 1.5rem;
-      color: var(--muted);
-      font-size: clamp(1rem, 1.5vw, 1.18rem);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.85rem;
-      margin-top: 2rem;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.48rem;
-      min-height: 50px;
-      padding: 0.86rem 1.25rem;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-pill);
-      background: var(--surface);
-      color: var(--maroon-dark);
-      font-weight: 900;
-      box-shadow: 0 14px 30px rgba(79, 15, 27, 0.08);
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-    }
-
-    .button.primary {
-      border-color: var(--maroon);
-      background: var(--maroon);
-      color: #fff;
-    }
-
-    .button.soft {
-      border-color: var(--maroon-soft);
-      background: var(--maroon-soft);
-      box-shadow: none;
-    }
-
-    .button:hover,
-    .button:focus-visible {
-      transform: translateY(-2px);
-      box-shadow: 0 20px 38px rgba(79, 15, 27, 0.14);
-    }
-
-    .hero-visual {
-      position: relative;
-      min-height: 590px;
-    }
-
-    .portrait,
-    .floating-card,
-    .location-card {
-      position: absolute;
-      border: 1px solid rgba(234, 219, 212, 0.95);
-      background: rgba(255, 255, 255, 0.9);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .portrait {
-      right: 2%;
-      top: 5%;
-      width: min(76%, 430px);
-      aspect-ratio: 0.78;
-      border-radius: 48% 48% 38px 38px;
-      background:
-        radial-gradient(circle at 50% 25%, #f1c7b6 0 15%, transparent 16%),
-        radial-gradient(ellipse at 51% 84%, var(--maroon) 0 31%, transparent 32%),
-        radial-gradient(circle at 45% 23%, #382220 0 25%, transparent 26%),
-        radial-gradient(circle at 69% 21%, rgba(255, 255, 255, 0.5), transparent 15%),
-        linear-gradient(145deg, #f7e7de, #fff8ef);
-    }
-
-    .portrait::before {
-      content: 'JL';
-      position: absolute;
-      left: 50%;
-      bottom: 18%;
-      transform: translateX(-50%);
-      color: rgba(255, 255, 255, 0.88);
-      font-size: clamp(3.4rem, 7vw, 6rem);
-      font-weight: 900;
-      letter-spacing: -0.15em;
-      text-shadow: 0 12px 26px rgba(79, 15, 27, 0.3);
-    }
-
-    .floating-card {
-      left: 0;
-      top: 2%;
-      width: min(45%, 230px);
-      aspect-ratio: 1;
-      border-radius: 40px;
-      padding: 1.15rem;
-      display: grid;
-      align-content: end;
-      background:
-        linear-gradient(135deg, rgba(122, 23, 40, 0.88), rgba(79, 15, 27, 0.96)),
-        radial-gradient(circle at 24% 20%, rgba(255, 255, 255, 0.42), transparent 31%);
-      color: #fff;
-    }
-
-    .floating-card strong {
-      display: block;
-      font-size: 2.6rem;
-      line-height: 1;
-      letter-spacing: -0.1em;
-    }
-
-    .floating-card span {
-      margin-top: 0.55rem;
-      color: rgba(255, 255, 255, 0.82);
-      font-weight: 700;
-      line-height: 1.45;
-    }
-
-    .location-card {
-      left: 7%;
-      bottom: 6%;
-      width: min(58%, 315px);
-      border-radius: var(--radius-xl);
-      padding: 1.35rem;
-    }
-
-    .location-card strong {
-      display: block;
-      margin-bottom: 0.42rem;
-      color: var(--maroon);
-      font-size: 1.45rem;
-      font-weight: 900;
-      letter-spacing: -0.05em;
-      line-height: 1.1;
-    }
-
-    .location-card p { color: var(--muted); }
-
-    .decor-circle {
-      position: absolute;
-      right: -1%;
-      bottom: 18%;
-      width: 130px;
-      aspect-ratio: 1;
-      border-radius: 50%;
-      background: var(--gold);
-      opacity: 0.24;
-    }
-
-    .section {
-      padding: clamp(4.5rem, 8vw, 7rem) 0;
-      border-top: 1px solid rgba(234, 219, 212, 0.72);
-    }
-
-    .section-head {
-      display: grid;
-      grid-template-columns: minmax(0, 0.84fr) minmax(0, 1fr);
-      gap: 1.5rem;
-      align-items: end;
-      margin-bottom: 2.2rem;
-    }
-
-    .section-head p,
-    .about-copy p,
-    .card p,
-    .faq p { color: var(--muted); }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr);
-      gap: 1rem;
-    }
-
-    .panel,
-    .card,
-    .faq {
-      border: 1px solid var(--line);
-      border-radius: var(--radius-xl);
-      background: rgba(255, 255, 255, 0.86);
-      box-shadow: 0 20px 52px rgba(79, 15, 27, 0.08);
-    }
-
-    .panel { padding: clamp(1.35rem, 3vw, 2rem); }
-    .about-copy p + p { margin-top: 1rem; }
-
-    .pill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.68rem;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      min-height: 38px;
-      padding: 0.48rem 0.78rem;
-      border-radius: var(--radius-pill);
-      background: var(--surface-tint);
-      color: var(--maroon-dark);
-      font-size: 0.86rem;
-      font-weight: 900;
-    }
-
-    .grid-3,
-    .insight-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    .card {
-      padding: 1.35rem;
-    }
-
-    .card time,
-    .card .label {
-      display: inline-flex;
-      margin-bottom: 0.78rem;
-      color: var(--maroon);
-      font-size: 0.78rem;
-      font-weight: 900;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .card h3 { margin-bottom: 0.62rem; }
-
-    .insight-card {
-      min-height: 246px;
-      display: grid;
-      align-content: space-between;
-    }
-
-    .read-link {
-      display: inline-flex;
-      margin-top: 1.2rem;
-      color: var(--maroon);
-      font-weight: 900;
-    }
-
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    .testimonial {
-      background: var(--maroon-dark);
-      color: #fff;
-    }
-
-    .testimonial p { color: rgba(255, 255, 255, 0.78); }
-    .testimonial h3 { margin-top: 1rem; color: #fff; }
-
-    .faq {
-      display: grid;
-      gap: 0.9rem;
-      padding: 1rem;
-    }
-
-    details {
-      padding: 1rem;
-      border-radius: var(--radius-lg);
-      background: var(--surface-tint);
-    }
-
-    summary {
-      cursor: pointer;
-      color: var(--maroon-dark);
-      font-weight: 900;
-    }
-
-    details p { margin-top: 0.65rem; }
-
-    .contact-strip {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 1rem;
-      align-items: center;
-      padding: clamp(1.4rem, 3vw, 2.1rem);
-      border-radius: var(--radius-xl);
-      background: var(--maroon);
-      color: #fff;
-      box-shadow: var(--shadow);
-    }
-
-    .contact-strip p { color: rgba(255, 255, 255, 0.78); }
-    .contact-strip .button { border-color: rgba(255, 255, 255, 0.28); box-shadow: none; }
-
-    footer {
-      padding: 2rem 0 3rem;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    @keyframes blink { 50% { opacity: 0; } }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-    }
-
-    @media (max-width: 920px) {
-      .hero,
-      .section-head,
-      .about-grid,
-      .contact-strip { grid-template-columns: 1fr; }
-
-      .hero { min-height: auto; padding-top: 3.8rem; }
-      .hero-visual { min-height: 500px; }
-      .grid-3, .insight-grid, .testimonial-grid { grid-template-columns: 1fr; }
-      .contact-strip { justify-items: start; }
-    }
-
-    @media (max-width: 680px) {
-      :root { --container: min(100% - 28px, 1180px); }
-      .nav { align-items: flex-start; flex-direction: column; padding: 0.95rem 0; }
-      .nav-links { width: 100%; flex-wrap: wrap; gap: 0.75rem 1rem; font-size: 0.86rem; }
+    @media (max-width: 980px) {
+      .hero, .grid-2, .grid-3, .grid-4, .skill-groups { grid-template-columns: 1fr; }
+      .hero { min-height: auto; }
+      .menu-button { display: inline-flex; }
+      .nav-links { position: absolute; inset: 76px 20px auto 20px; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 0.8rem; border: 1px solid var(--line); border-radius: 20px; background: #fff; box-shadow: var(--shadow); }
+      .nav-links a { display: block; padding: 0.85rem 1rem; }
       .nav-links a::after { display: none; }
-      h1 { font-size: clamp(3rem, 16vw, 5.15rem); }
-      .hero-visual { min-height: 400px; }
-      .portrait { right: 0; width: 72%; }
-      .floating-card { width: 45%; border-radius: 30px; }
-      .location-card { left: 0; width: 72%; }
+      #nav-toggle:checked ~ .nav-links { display: flex; }
+    }
+
+    @media (max-width: 640px) {
+      :root { --container: min(100% - 28px, 1160px); }
+      .brand span:last-child { display: none; }
+      .hero-actions, .contact-strip, .footer-inner { flex-direction: column; align-items: stretch; }
+      .button { width: 100%; }
+      h1 { font-size: clamp(2.55rem, 15vw, 4.2rem); }
+      .profile-placeholder { min-height: 220px; }
     }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
   <header class="site-header">
-    <nav class="container nav" aria-label="Primary navigation">
-      <a class="brand" href="#home"><span class="brand-badge">JL</span><span>Jasper Lee</span></a>
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="Home">
+        <span class="brand-badge">HR</span>
+        <!-- TODO: Replace with final full name or preferred site brand. -->
+        <span>HR Portfolio</span>
+      </a>
+      <input type="checkbox" id="nav-toggle" aria-label="Toggle navigation menu" />
+      <label class="menu-button" for="nav-toggle"><span aria-hidden="true"></span> Menu</label>
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#case-studies">Case Studies</a></li>
+        <li><a href="#ai-in-hr">AI in HR</a></li>
+        <li><a href="#hr-portal">HR Portal</a></li>
         <li><a href="#resume">Resume</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <main class="container">
-    <section id="home" class="hero" aria-label="Landing page introduction">
+  <main id="main">
+    <section id="home" class="container hero">
       <div>
-        <div class="kicker">People operations portfolio</div>
-        <h1>Hi, I'm <span class="accent">Jasper Lee</span></h1>
-        <p class="typing-line" aria-live="polite"><span id="typingText" class="typing-text"></span></p>
-        <p class="hero-copy">I support teams with practical, employee-friendly HR operations across onboarding, payroll coordination, compliance documentation, employee records, and process improvement.</p>
-        <div class="hero-actions">
-          <a class="button primary" href="#resume">Resume ↓</a>
-          <a class="button soft" href="#contact">Contact ✉</a>
+        <span class="kicker">Singapore-based HR portfolio</span>
+        <h1>HR Operations &amp; Payroll Professional <span class="accent">| AI &amp; Process Improvement Enthusiast</span></h1>
+        <p class="hero-copy"><strong>I help improve HR operations through payroll accuracy, employee service, workflow improvement, and practical automation.</strong></p>
+        <p class="hero-copy">I strongly believe AI will change the way HR operates in the future. My interest is in using AI responsibly to reduce repetitive HR work, improve policy access, support employee queries, and help HR teams focus more on people and business outcomes.</p>
+        <div class="hero-actions" aria-label="Primary actions">
+          <a class="button primary" href="#case-studies">View My Work</a>
+          <a class="button" href="#hr-portal">Explore HR Portal</a>
+          <!-- TODO: Replace resume.pdf with final resume file. -->
+          <a class="button" href="resume.pdf" download>Download Resume</a>
+          <a class="button" href="#contact">Contact Me</a>
         </div>
       </div>
+      <aside class="hero-panel" aria-label="Portfolio focus areas">
+        <div class="profile-placeholder" role="img" aria-label="Profile image placeholder">
+          <!-- TODO: Replace this placeholder with a professional profile photo. -->
+          <div><strong>HR Operations, Payroll &amp; AI-Enabled Process Improvement</strong><span>Professional portfolio plus practical HR knowledge hub.</span></div>
+        </div>
+        <div class="pill-list">
+          <span class="pill">HR Operations</span>
+          <span class="pill">Payroll</span>
+          <span class="pill">HR Systems</span>
+          <span class="pill">Process Improvement</span>
+          <span class="pill">AI in HR</span>
+          <span class="pill">Automation</span>
+        </div>
+      </aside>
+    </section>
 
-      <div class="hero-visual" aria-hidden="true">
-        <div class="floating-card"><strong>HR</strong><span>Structured support for every employee touchpoint.</span></div>
-        <div class="portrait"></div>
-        <div class="location-card"><strong>Based in Singapore</strong><p>Focused on dependable HR service delivery, compliant documentation, and smoother people processes.</p></div>
-        <div class="decor-circle"></div>
+    <section class="section" aria-labelledby="bring-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">What I Bring</span>
+          <h2 id="bring-title">Practical HR operations experience with a future-ready mindset.</h2>
+          <p>Clear, recruiter-friendly highlights across HR service delivery, compliance, systems, process improvement, and responsible AI use.</p>
+        </div>
+        <div class="grid-4">
+          <article class="card"><span class="label">Operations</span><h3>HR Operations &amp; Payroll</h3><p>Experience in payroll processing, leave, benefits, work pass, employee queries, vendor coordination, and HR shared services.</p></article>
+          <article class="card"><span class="label">Improvement</span><h3>Process Improvement</h3><p>Able to review gaps, improve workflows, create tracking structures, and reduce manual follow-up.</p></article>
+          <article class="card"><span class="label">Systems</span><h3>HR Systems &amp; Automation</h3><p>Hands-on interest in Excel, VBA, Power Automate, SharePoint Lists, Word templates, and HR system processes.</p></article>
+          <article class="card highlight"><span class="label">AI-ready</span><h3>AI-Ready HR Mindset</h3><p>Strong belief that AI will change how HR operates, while maintaining confidentiality, compliance, and human judgement.</p></article>
+        </div>
       </div>
     </section>
 
     <section id="about" class="section">
-      <div class="section-head">
-        <h2>About me</h2>
-        <p>A warm, minimal introduction section inspired by the supplied portfolio reference, using white space first and maroon only where it creates emphasis.</p>
-      </div>
-      <div class="about-grid">
-        <div class="panel about-copy">
-          <p>I am an HR professional with experience supporting the full employee lifecycle, including hiring coordination, onboarding, payroll support, compliance documentation, employee queries, and offboarding.</p>
-          <p>My work style is structured, discreet, and service-led. I like making HR processes clear for employees and reliable for the teams responsible for running them.</p>
+      <div class="container grid-2">
+        <div class="section-head">
+          <span class="eyebrow">About</span>
+          <h2>People operations grounded in service, accuracy, and practical problem-solving.</h2>
+          <p>I am an HR professional based in Singapore with experience across HR Operations, Payroll, HR Shared Services, employee queries, leave and benefits administration, work pass coordination, HR systems, and process improvement.</p>
+          <p>My work experience has given me exposure to both the operational and human side of HR. I enjoy solving practical HR problems, improving processes, and making complex information easier for employees and stakeholders to understand.</p>
+          <p>In recent years, I have developed a strong interest in automation and AI. I believe HR professionals who understand both people and technology will be better prepared for the future of work.</p>
         </div>
-        <aside class="panel" aria-label="Core HR strengths">
-          <div class="pill-list">
-            <span class="pill">Employee lifecycle</span>
-            <span class="pill">Onboarding</span>
-            <span class="pill">Payroll support</span>
-            <span class="pill">CPF / MOM / IRAS</span>
-            <span class="pill">HR documentation</span>
-            <span class="pill">HR systems</span>
-            <span class="pill">Process improvement</span>
-            <span class="pill">Singapore HR</span>
-          </div>
-        </aside>
+        <div class="card">
+          <span class="label">Career interest</span>
+          <h3>Open to HR Operations, Payroll, HR Shared Services, People Operations, HRIS, HR Transformation, and HR Process Improvement roles.</h3>
+          <ul>
+            <li>Strong HR operational knowledge</li>
+            <li>Detail-oriented payroll and compliance mindset</li>
+            <li>Clear employee communication</li>
+            <li>Process improvement thinking</li>
+            <li>Interest in AI and automation</li>
+            <li>Practical problem-solving</li>
+            <li>Comfortable working with stakeholders and vendors</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Professional Experience</span>
+          <h2>HR Operations / Payroll / People Operations</h2>
+          <p>My HR experience covers operational execution, issue resolution, stakeholder coordination, employee communication, and process improvement. I have handled HR matters where accuracy, timeliness, confidentiality, and clear communication are important.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card"><h3>Key HR operations areas</h3><ul><li>Employee query management</li><li>HR Shared Services support</li><li>Leave and attendance administration</li><li>Employee benefits and claims</li><li>HR policy clarification and employee communication</li></ul></article>
+          <article class="card"><h3>Payroll &amp; compliance areas</h3><ul><li>Payroll processing and issue follow-up</li><li>CPF / IRAS / tax clearance coordination</li><li>Work pass administration and renewal tracking</li><li>Report checking and data validation</li><li>Process documentation</li></ul></article>
+          <article class="card"><h3>Systems &amp; coordination areas</h3><ul><li>HR vendor coordination</li><li>HR system migration support</li><li>Workflow tracking and templates</li><li>Stakeholder follow-up</li><li>Operational readiness support</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="case-studies" class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Selected Work &amp; Case Studies</span>
+          <h2>Generic, privacy-safe examples of HR operational problem solving.</h2>
+          <p>These case studies avoid confidential company names, employee information, salary data, internal documents, and system screenshots.</p>
+        </div>
+        <div class="grid-2">
+          <article class="card case-card"><span class="label">Payroll controls</span><h3>Reducing Payroll Error Risk Through Better Tracking and Controls</h3><div class="case-meta"><div><strong>Problem</strong><p>Payroll errors, late amendments, or unclear follow-up can create employee impact, rework, and recovery issues.</p></div><div><strong>My Role</strong><p>Supported issue review, stakeholder coordination, correction tracking, and employee communication.</p></div><div><strong>Actions Taken</strong><ul><li>Reviewed payroll-related issues and clarified impact</li><li>Coordinated with stakeholders and vendors</li><li>Tracked correction status and follow-up actions</li></ul></div><div><strong>Result / Value</strong><p>Improved visibility of payroll issues, supported timely follow-up, and helped reduce confusion during correction or recovery processes.</p></div><div><strong>Skills Used</strong><p>Payroll operations, data checking, stakeholder coordination, employee communication, process control.</p></div></div></article>
+          <article class="card case-card"><span class="label">Employee service</span><h3>Structuring HR Query Handling for Better Follow-Up</h3><div class="case-meta"><div><strong>Problem</strong><p>Employee HR queries can come from multiple channels, making it difficult to track ownership, response status, and recurring issues.</p></div><div><strong>My Role</strong><p>Explored ways to structure query intake, tracking, and follow-up using simple digital tools.</p></div><div><strong>Actions Taken</strong><ul><li>Reviewed common HR query types</li><li>Suggested structured intake using forms or templates</li><li>Considered status fields, ownership, response timelines, and reporting views</li></ul></div><div><strong>Result / Value</strong><p>Created a clearer approach for managing HR queries, improving visibility, accountability, and response consistency.</p></div><div><strong>Skills Used</strong><p>HR Shared Services, employee service, process design, Microsoft Forms, SharePoint Lists, Power Automate concept.</p></div></div></article>
+          <article class="card case-card"><span class="label">HR systems</span><h3>Supporting HR System Migration from an Operations Perspective</h3><div class="case-meta"><div><strong>Problem</strong><p>HR system migration can create uncertainty in payroll, attendance, absence, approvals, and employee query handling.</p></div><div><strong>My Role</strong><p>Supported process review, communication, issue clarification, and operational readiness.</p></div><div><strong>Actions Taken</strong><ul><li>Reviewed system behaviour from payroll and attendance perspectives</li><li>Clarified payroll cut-off and absence impact</li><li>Identified process gaps and escalation points</li></ul></div><div><strong>Result / Value</strong><p>Helped reduce confusion, supported better understanding of system behaviour, and improved communication during transition.</p></div><div><strong>Skills Used</strong><p>HR systems, payroll operations, change support, communication drafting, process review.</p></div></div></article>
+          <article class="card case-card"><span class="label">Compliance</span><h3>Improving Work Pass Renewal Visibility and Follow-Up</h3><div class="case-meta"><div><strong>Problem</strong><p>Work pass renewal requires accurate tracking, timely documents, business input, and follow-up to avoid last-minute issues.</p></div><div><strong>My Role</strong><p>Supported tracking, documentation, communication, and follow-up for renewal-related matters.</p></div><div><strong>Actions Taken</strong><ul><li>Tracked renewal timelines and required actions</li><li>Prepared clear communication to employees and stakeholders</li><li>Maintained attention to compliance and business continuity</li></ul></div><div><strong>Result / Value</strong><p>Improved visibility of renewal status and reduced risk of missed follow-up.</p></div><div><strong>Skills Used</strong><p>Work pass administration, compliance tracking, stakeholder follow-up, documentation, HR operations.</p></div></div></article>
+          <article class="card case-card highlight"><span class="label">Responsible AI</span><h3>Using AI to Support HR Automation While Protecting Confidential Data</h3><div class="case-meta"><div><strong>Problem</strong><p>HR teams often spend significant time on repetitive tasks such as document generation, email drafting, report formatting, and data checking.</p></div><div><strong>My Role</strong><p>Explored how AI can support automation logic and VBA generation while respecting internal control and data protection requirements.</p></div><div><strong>Actions Taken</strong><ul><li>Used AI to generate sample VBA logic for HR-related workflows</li><li>Used dummy or non-sensitive data when testing ideas</li><li>Reviewed outputs manually before applying them in work context</li></ul></div><div><strong>Result / Value</strong><p>Demonstrated how AI can speed up automation development while keeping HR data protection and human review as key controls.</p></div><div><strong>Skills Used</strong><p>AI prompting, VBA logic, Excel automation, HR document generation, data protection awareness, process improvement.</p></div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="ai-in-hr" class="section">
+      <div class="container grid-2">
+        <div class="section-head">
+          <span class="eyebrow">AI &amp; HR Innovation</span>
+          <h2>Building the future of HR with AI and automation.</h2>
+          <p>I strongly believe AI will change the way HR operates in the future.</p>
+          <p>HR will still require human judgement, empathy, confidentiality, and compliance awareness. However, AI can help HR professionals reduce repetitive work, improve response time, support policy clarification, assist with workflow design, and provide better employee service.</p>
+          <p>My interest is in practical and responsible AI use — especially in HR operations, payroll, employee query handling, policy knowledge management, and automation.</p>
+        </div>
+        <article class="card dark-card"><span class="label">Responsible AI Use</span><h3>Use AI without exposing confidential HR data.</h3><ul><li>Do not upload employee names, NRIC / FIN / passport numbers, salary records, medical details, disciplinary matters, or internal documents.</li><li>Use dummy or anonymised sample data for experiments.</li><li>Keep human review, compliance checks, and judgement in every workflow.</li><li>Use AI for drafts, workflow ideas, knowledge structures, and sample code — not final unreviewed HR decisions.</li></ul></article>
+      </div>
+    </section>
+
+    <section id="hr-portal" class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">HR Knowledge Portal</span>
+          <h2>A growing collection of practical HR notes, automation ideas, and AI use cases.</h2>
+          <p>This portal is intended for HR professionals, HR operations practitioners, automation learners, and people interested in responsible AI use in HR.</p>
+        </div>
+        <div class="grid-4">
+          <article class="card"><span class="label">Coming soon</span><h3>HR Operations</h3><p>Practical notes on employee lifecycle administration, query handling, benefits, work pass tracking, and HR service delivery.</p></article>
+          <article class="card"><span class="label">Coming soon</span><h3>Payroll &amp; Compliance</h3><p>General concepts for payroll checking, CPF, IRAS, tax clearance coordination, audit support, and documentation discipline.</p></article>
+          <article class="card"><span class="label">Coming soon</span><h3>HR Automation</h3><p>Ideas for trackers, templates, SharePoint Lists, Microsoft Forms, Power Automate, Excel, VBA, and Outlook templates.</p></article>
+          <article class="card"><span class="label">Coming soon</span><h3>AI in HR</h3><p>Responsible use cases for policy knowledge, HR chatbot concepts, workflow design, communication drafts, and sample coding.</p></article>
+        </div>
+        <p class="note"><strong>TODO:</strong> Add final article content and any certifications or measurable achievements only after they are verified and safe to publish.</p>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Skills</span>
+          <h2>Capabilities grouped for quick recruiter scanning.</h2>
+        </div>
+        <div class="skill-groups">
+          <article class="card"><h3>HR Operations</h3><ul><li>HR Shared Services</li><li>Employee Query Handling</li><li>Leave Administration</li><li>Benefits Administration</li><li>Claims Support</li><li>Work Pass Administration</li><li>Vendor Coordination</li><li>Employee Communication</li></ul></article>
+          <article class="card"><h3>Payroll &amp; Compliance</h3><ul><li>Payroll Processing</li><li>Payroll Checking</li><li>CPF</li><li>IRAS</li><li>Tax Clearance</li><li>Payroll Corrections</li><li>Audit Support</li><li>Documentation</li></ul></article>
+          <article class="card"><h3>Systems &amp; Automation</h3><ul><li>Excel</li><li>VBA</li><li>Power Automate</li><li>SharePoint Lists</li><li>Microsoft Forms</li><li>Word Templates</li><li>Outlook Templates</li><li>Looker Studio</li><li>GitHub basics</li></ul></article>
+          <article class="card"><h3>AI &amp; Process Improvement</h3><ul><li>AI-assisted VBA logic</li><li>Prompting for workflow design</li><li>HR chatbot concepts</li><li>Knowledge portal design</li><li>Process mapping</li><li>SOP improvement</li><li>Data protection awareness</li></ul></article>
+        </div>
       </div>
     </section>
 
     <section id="resume" class="section">
-      <div class="section-head">
-        <h2>Resume highlights</h2>
-        <p>Concise cards keep the page scannable while showing the HR capabilities most relevant to employers and collaborators.</p>
-      </div>
-      <div class="grid-3">
-        <article class="card"><time>Operations</time><h3>Employee lifecycle support</h3><p>Maintaining accurate records, preparing employment documents, coordinating onboarding tasks, and supporting offboarding steps.</p></article>
-        <article class="card"><time>Payroll</time><h3>Payroll coordination</h3><p>Supporting monthly payroll inputs, checking exceptions, maintaining documentation, and coordinating Singapore statutory requirements.</p></article>
-        <article class="card"><time>Systems</time><h3>Workflow improvement</h3><p>Mapping repeated HR tasks, improving trackers and templates, and creating simple workflows that reduce manual follow-up.</p></article>
-      </div>
-    </section>
-
-    <section id="portfolio" class="section">
-      <div class="section-head">
-        <h2>Portfolio</h2>
-        <p>Examples are framed as practical HR operations projects rather than heavy product demos, matching the clean reference-site structure.</p>
-      </div>
-      <div class="insight-grid">
-        <article class="card insight-card"><div><span class="label">Project</span><h3>Onboarding readiness tracker</h3><p>A checklist-style tracker for owners, due dates, employment documents, first-day setup, and follow-up reminders.</p></div><a class="read-link" href="#contact">Discuss project →</a></article>
-        <article class="card insight-card"><div><span class="label">Project</span><h3>Payroll exception log</h3><p>A simple review workflow to capture monthly payroll changes, pending evidence, approvals, and final resolution status.</p></div><a class="read-link" href="#contact">Discuss project →</a></article>
-        <article class="card insight-card"><div><span class="label">Project</span><h3>HR knowledge base outline</h3><p>A self-service structure for common employee questions, policy summaries, escalation paths, and document templates.</p></div><a class="read-link" href="#contact">Discuss project →</a></article>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="testimonials-title">
-      <div class="section-head">
-        <h2 id="testimonials-title">Testimonials</h2>
-        <p>Maroon testimonial blocks add contrast while preserving the overall white-background look requested for the site.</p>
-      </div>
-      <div class="testimonial-grid">
-        <article class="card testimonial"><p>“Jasper brings structure and care to HR operations, making complex employee processes feel clear and manageable.”</p><h3>People Operations Lead</h3></article>
-        <article class="card testimonial"><p>“His attention to detail helps payroll, documentation, and compliance workflows move with fewer surprises.”</p><h3>Finance Partner</h3></article>
+      <div class="container grid-2">
+        <div class="section-head">
+          <span class="eyebrow">Resume</span>
+          <h2>Download the resume or review the portfolio highlights.</h2>
+          <p>The portfolio supplements the resume by showing practical HR operations, payroll, systems, automation, and responsible AI themes.</p>
+          <!-- TODO: Replace resume.pdf with final resume file. -->
+          <a class="button primary" href="resume.pdf" download>Download Resume</a>
+        </div>
+        <article class="card"><span class="label">TODO placeholders</span><h3>Update before publishing</h3><ul><li>Full name and preferred professional headline</li><li>Exact years of experience</li><li>Actual job titles</li><li>Verified measurable achievements</li><li>Certifications</li><li>Final resume PDF</li></ul></article>
       </div>
     </section>
 
     <section id="contact" class="section">
-      <div class="section-head">
-        <h2>Contact</h2>
-        <p>Use this area for your email, LinkedIn, or booking link. The layout is intentionally simple so it works well on static hosting.</p>
-      </div>
-      <div class="contact-strip">
-        <div>
-          <h3>Let's connect about HR operations.</h3>
-          <p>Add your preferred contact details here when you are ready to publish.</p>
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Contact</span>
+          <h2>Let’s connect about HR operations, payroll, systems, or process improvement opportunities.</h2>
+          <p>Use this area for the final email address, LinkedIn profile, and any preferred contact method.</p>
         </div>
-        <a class="button" href="mailto:hello@example.com">hello@example.com</a>
-      </div>
-      <div class="faq" aria-label="Frequently asked questions">
-        <details open><summary>What HR work do you focus on?</summary><p>Employee lifecycle administration, onboarding coordination, payroll support, HR records, compliance documentation, and process improvement.</p></details>
-        <details><summary>Where are you based?</summary><p>I am based in Singapore and focus on HR operations suited for Singapore teams and employment processes.</p></details>
-        <details><summary>Can this site be hosted statically?</summary><p>Yes. The page is a single static HTML file with CSS and a small JavaScript typing effect. It does not require a backend or API key.</p></details>
+        <div class="contact-strip">
+          <div>
+            <h3>Open to suitable HR opportunities.</h3>
+            <p>Based in Singapore. Contact details should be updated before publishing.</p>
+          </div>
+          <!-- TODO: Replace hello@example.com with final email address. -->
+          <a class="button" href="mailto:hello@example.com">hello@example.com</a>
+          <!-- TODO: Replace # with final LinkedIn URL. -->
+          <a class="button" href="#" aria-label="LinkedIn placeholder link">LinkedIn</a>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="container">© 2026 Jasper Lee · HR professional · Based in Singapore</footer>
-
-  <script>
-    const typingText = document.querySelector('#typingText');
-    const phrases = ['HR professional', 'Based in Singapore'];
-    let phraseIndex = 0;
-    let characterIndex = 0;
-    let isDeleting = false;
-
-    function typeLoop() {
-      const currentPhrase = phrases[phraseIndex];
-      typingText.textContent = currentPhrase.slice(0, characterIndex);
-
-      if (!isDeleting && characterIndex < currentPhrase.length) {
-        characterIndex += 1;
-        setTimeout(typeLoop, 95);
-        return;
-      }
-
-      if (!isDeleting && characterIndex === currentPhrase.length) {
-        isDeleting = true;
-        setTimeout(typeLoop, 1200);
-        return;
-      }
-
-      if (isDeleting && characterIndex > 0) {
-        characterIndex -= 1;
-        setTimeout(typeLoop, 55);
-        return;
-      }
-
-      isDeleting = false;
-      phraseIndex = (phraseIndex + 1) % phrases.length;
-      setTimeout(typeLoop, 240);
-    }
-
-    typeLoop();
-  </script>
+  <footer class="footer container">
+    <div class="footer-inner">
+      <p>Built as a personal HR portfolio and knowledge portal. Responsible AI use. No confidential HR data is shared on this site.</p>
+      <ul class="footer-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#case-studies">Case Studies</a></li>
+        <li><a href="#ai-in-hr">AI in HR</a></li>
+        <li><a href="#hr-portal">HR Portal</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#">LinkedIn</a></li>
+      </ul>
+    </div>
+  </footer>
 </body>
 </html>
